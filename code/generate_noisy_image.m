@@ -1,27 +1,22 @@
-sigma = 10;
+function generate_noisy_image(folder_path, base_file, sigma, image_count)
 
-folder_path = '../data/sigma';
+    im = imread(fullfile(folder_path, base_file));
 
-im = imread(fullfile(folder_path, 'lena.jpg'));
+    if(size(size(im), 2) > 2)
+        im = rgb2gray(im);
+    end
 
-if(size(size(im), 2) > 2)
-    im = rgb2gray(im);
+    im = double(im);
+
+    fid = fopen(fullfile(folder_path, 'filelist.txt'),'wt');
+
+    for i=1:image_count
+        im_noisy = im + randn(size(im)) * sigma;
+        filename = sprintf('%03d.png', i - 1);
+        fprintf(fid, '%s\n', filename);
+        imwrite(uint8(im_noisy), fullfile(folder_path, filename));
+    end
+
+    fclose(fid);
+
 end
-
-im = double(im);
-
-image_count = 100;
-
-fid = fopen(fullfile(folder_path, 'filelist.txt'),'wt');
-
-for i=1:image_count
-    im_noisy = im + randn(size(im)) * sigma;
-    filename = sprintf('%02d.png', i - 1);
-    fprintf(fid, '%s\n', filename);
-    imwrite(uint8(im_noisy), fullfile(folder_path, filename));
-end
-
-fclose(fid);
-
-
-close all;

@@ -1,5 +1,7 @@
 function [ sigma ] = test_sigma_calculator( folder_path )
 
+    generate_noisy_image(folder_path, 'lena.jpg', 30, 100);
+
     filenames = read_file_list(folder_path);
     file_count = size(filenames, 2);
     
