@@ -1,3 +1,2 @@
-# CMP717-Project
-Hacettepe University CMP717 Course Term Project
-Project's code will appear here
+# CMP717-Project Code
+Project code will appear here

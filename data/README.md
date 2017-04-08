@@ -1,3 +1,2 @@
-# CMP717-Project
-Hacettepe University CMP717 Course Term Project
-Project's dataset will appear here
+# CMP717-Project Dataset
+Project dataset will appear here
