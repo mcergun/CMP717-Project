@@ -12,6 +12,8 @@ function generate_noisy_image(folder_path, base_file, sigma, image_count)
 
     for i=1:image_count
         im_noisy = im + randn(size(im)) * sigma;
+        im_noisy(im_noisy < 0) = 0;
+        im_noisy(im_noisy > 255) = 255;
         filename = sprintf('%03d.png', i - 1);
         fprintf(fid, '%s\n', filename);
         imwrite(uint8(im_noisy), fullfile(folder_path, filename));
