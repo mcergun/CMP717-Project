@@ -10,7 +10,7 @@ function [ sigma ] = test_sigma_calculator( folder_path )
     
     for i=1:file_count
         cur_img = double(imread(filenames{i}));
-        [mn, var] = estimate_sigma(mn, var, cur_img, i);
+        [mn, var] = estimate_var(mn, var, cur_img, i);
     end
     
     sigma = sqrt(var);
