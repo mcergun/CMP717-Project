@@ -17,7 +17,7 @@ nu = 200;              % bw for dynamic guidance
 step=20;
 issparse = true;
 
-folder_name = './results/depthSR/';
+folder_name = '../../results/SDFilter/depthSR/';
 if ~exist(folder_name, 'dir')
     mkdir(folder_name);
 end
@@ -26,8 +26,8 @@ for p=1:length(only_name)
     St = sprintf('img: %s',only_name{p});
     disp(St);
     
-    img_name = ['./imgs/depthSR/' only_name{p} '.bmp'];
-    dep_name = ['./imgs/depthSR/' only_name{p} '_depth.bmp'];
+    img_name = ['../../data/SDFilter/depthSR/' only_name{p} '.bmp'];
+    dep_name = ['../../data/SDFilter/depthSR/' only_name{p} '_depth.bmp'];
     dep = im2double(imread(dep_name));
     img = im2double(imread(img_name));
     [m, n] = size(img);

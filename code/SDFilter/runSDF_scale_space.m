@@ -5,7 +5,7 @@ addpath 'algorithms'
 addpath 'graphAnalysisToolbox-1.0'
 
 img_name = 'ss_01.png';
-img_dir = './imgs/scale-space/'
+img_dir = '../../data/SDFilter/scale-space/'
 f = im2double(imread(fullfile(img_dir, img_name))); %input image
 [m,n,c] = size(f);
 
@@ -27,7 +27,7 @@ disp('*configuration for scale-space filtering*');
 St = sprintf(' img: %s \n u^0: costant \n mu: %d \n nu: %d \n isSparse: %d', img_name, mu, nu, issparse);
 disp(St);fprintf('\n');
 
-folder_name = './results/scale-space/';
+folder_name = '../../results/SDFilter/scale-space/';
 if ~exist(folder_name, 'dir')
     mkdir(folder_name);
 end
