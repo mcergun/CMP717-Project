@@ -1,0 +1,2 @@
+sdfilter function parameters are
+sdfilter(static_guidance, dynamic_guidance, orig_img, neighbor_selection, lambda, static_bw, dynamic_bw, num_steps, is_sparse)
