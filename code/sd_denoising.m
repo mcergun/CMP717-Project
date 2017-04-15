@@ -15,7 +15,7 @@ g = im2double(rgb2gray(imread(fullfile(img_dir, static_img_name)))); %static gui
 [m,n,c] = size(f);
 
 %scale-space filtering using joint static and dynamic guidance 
-nei = 1;                   % 0: 4-neighbor 1: 8-neighbor
+nei = 0;                   % 0: 4-neighbor 1: 8-neighbor
 lambda = 15;   % regularization parameter
 mu = 60;                  % bw for static guidance
 nu = 30;                 % bw for dymadic guidance
