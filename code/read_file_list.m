@@ -4,7 +4,7 @@ function [ filelist, listsize ] = read_file_list( folder_path )
     
     fid = fopen(filelist);
     
-    filelist = cell(1,100);
+    filelist = cell(1,10000);
     i = 0;
     
     tline = fgetl(fid);
