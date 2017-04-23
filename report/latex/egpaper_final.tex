@@ -21,7 +21,7 @@
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
 %\ifcvprfinal\pagestyle{empty}\fi
-\setcounter{page}{4321}
+\setcounter{page}{1}
 \begin{document}
 
 %%%%%%%%% TITLE
@@ -29,7 +29,7 @@
 
 \author{Mert Can Ergun\\
 Hacettepe University\\
-Ankara, Turkey\\
+Department of Computer Engineering\\
 {\tt\small mcergun@windowslive.com}
 % For a paper whose authors are all at the same institution,
 % omit the following lines up until the closing ``}''.
@@ -39,7 +39,7 @@ Ankara, Turkey\\
 \and
 Gokhan Yaliniz\\
 Hacettepe University\\
-Ankara, Turkey\\
+Department of Computer Engineering\\
 {\tt\small gokhanyaliniz@gmail.com}
 }
 
@@ -48,17 +48,20 @@ Ankara, Turkey\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-   This project evaluates the performance of an already existing method for de-noising. 
+   Traditional de-noising algorithms using static and dynamic guidance images are already used. The SD Filter leverages both static and dynamic guidance together for many applications. For this project de-noising application is studied. The method uses high detail NIR image as a static guidance for de-noising an visible spectrum RGB image.
+   
+   To evaluate this method's performance some image metric methods are also studied in this paper.
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
 \section{Introduction}
 
-Please follow the steps outlined below when submitting your manuscript to
-the IEEE Computer Society Press.  This style guide now has several
-important modifications (for example, you are no longer warned against the
-use of sticky tape to attach your artwork to the paper), so all authors
-should read this new version.
+Many tasks in image processing requires regularization in order to get good results. Guidance is used to transfer strong structures from one image to another. 
+
+Traditional methods use static or dynamic guidance images. Static guidance regularization modulates input image with similarities between two images. It can easily reflect internal properties of the input image.
+Dynamic guidance regularization on the other hand modulates input image with similarities between neighboring pixels. It can preserve local features better than static guidance regularization.
+
+Robust Image Filtering using Joint Static and Dynamic Guidance\cite{ham2015} paper uses both static and dynamic guidance images together to keep local features and static image structures intact.
 
 %-------------------------------------------------------------------------
 \subsection{Language}
