@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}\itemsep=-1pt
+
+\bibitem{psnr-wiki}
+Wikipedia - peak signal-to-noise ratio.
+
+\bibitem{ham2015}
+B.~Ham, M.~Cho, and J.~Ponce.
+\newblock Robust image filtering using joint static and dynamic guidance.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, 2015.
+
+\bibitem{noise-weak-texture}
+X.~Liu, M.~Tanaka, and M.~Okutomi.
+\newblock Noise level estimation using weak textured patches of a single noisy
+  image.
+\newblock In {\em 2012 19th IEEE International Conference on Image Processing},
+  pages 665--668, Sept 2012.
+
+\bibitem{triclobs}
+A.~Toet, M.~A. Hogervorst, and A.~R. Pinkus.
+\newblock {The TRICLOBS Dynamic Multi-Band Image Data Set for the Development
+  and Evaluation of Image Fusion Methods}.
+\newblock {\em PLOS ONE}, 11(12):e0165016+, Dec. 2016.
+
+\end{thebibliography}
