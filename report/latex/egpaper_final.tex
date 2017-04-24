@@ -73,9 +73,8 @@ Both static and dynamic guidance have their own advantages and disadvantages. To
 
 To get a better understanding, we have investigated\textsl{} the static and dynamic guidance seperately. Static and dynamic guidance can be explicit or implicit. Implicit regularization stems from a filtering framework.\cite{ham2015}. 
 
-The structure of the guidance image is transferred to input image by filtering using a weight function that depends on the similarity of features in the input images \cite{Kopf:2007:JBU:1275808.1276497}. The bilateral filter (BF)\cite{tomasi1998bilateral}, guided filter (GF) \cite{he2013guided}, and weighted median filter (WMF) \cite{ma2013constant} have been adapted to static guidance regularization successfully.
-
-
+The structure of the guidance image is transferred to input image by filtering using a weight function that depends on the similarity of features in the input images \cite{Kopf:2007:JBU:1275808.1276497}. The bilateral filter (BF)\cite{tomasi1998bilateral}, guided filter (GF) \cite{he2013guided}, and weighted median filter (WMF) \cite{ma2013constant} have been adapted to static guidance regularization successfully. There are two representative filtering methods dynamic
+guidance are iterative nonlocal means (INM)  \cite{brox2008efficient} and the rolling-guidance filter (RGF) \cite{ham2015robust}. The filtering framework of this two approaches are the same but INM preserve texture during noise reduction, while The RGF removes texture through scale spae filtering. Even if the implementation of this implicit regularization is easy and simple, it suffers  when information is sparse, e.g., in image colarization \cite{levin2004colorization} or because of its local nature this approach might introduce artifacts, e.g., halos and gradient reversal  \cite{he2013guided}.The conditions  of implicity regularization is highly controlled, so it employed as a pre-processing and/or post-processing for further applications \cite{lang2012practical,ma2013constant}. 
 
 
 \section{Methodology}
