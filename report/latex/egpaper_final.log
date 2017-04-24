@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.24)  24 APR 2017 19:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.24)  24 APR 2017 20:29
 entering extended mode
 **./egpaper_final.tex
 (egpaper_final.tex
@@ -363,48 +363,48 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 
 Underfull \vbox (badness 1394) has occurred while \output is active []
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-Underfull \hbox (badness 3078) in paragraph at lines 83--83
+
+]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
+
+Underfull \hbox (badness 3078) in paragraph at lines 84--84
 []\OT1/ptm/b/n/10 Online Vari-ance Cal-cu-la-tion on Con-sec-u-tive
  []
 
-<single_image_noise_estimation.png, id=7, 400.49625pt x 502.87875pt>
+<single_image_noise_estimation.png, id=56, 400.49625pt x 502.87875pt>
 File: single_image_noise_estimation.png Graphic file (type png)
 
 <use single_image_noise_estimation.png>
 Package pdftex.def Info: single_image_noise_estimation.png used on input line 8
-6.
+7.
 (pdftex.def)             Requested size: 213.4209pt x 267.98239pt.
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
-
-
-] (egpaper_final.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 107.
- [2 <./single_image_noise_estimation.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
-
-(egpaper_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 107.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 107.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 107.
+ [2 <./single_image_noise_estimation.png>] (egpaper_final.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
+ [3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
+ (egpaper_final.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 108.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 108.
  ) 
 Here is how much of TeX's memory you used:
- 6296 strings out of 493333
- 90111 string characters out of 3139188
- 180519 words of memory out of 3000000
- 9720 multiletter control sequences out of 15000+200000
+ 6324 strings out of 493333
+ 90658 string characters out of 3139188
+ 185034 words of memory out of 3000000
+ 9734 multiletter control sequences out of 15000+200000
  24829 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,9n,26p,799b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,9n,26p,3119b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<D:/Program Files/Mi
 KTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/
 type1/urw/times/utmb8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on egpaper_final.pdf (2 pages, 108209 bytes).
+Output written on egpaper_final.pdf (3 pages, 122845 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
+ 104 PDF objects out of 1000 (max. 8388607)
+ 31 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

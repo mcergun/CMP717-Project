@@ -3,5 +3,11 @@ The style file: ieee.bst
 Database file #1: egbib.bib
 Warning--entry type for "psnr-wiki" isn't style-file defined
 --line 28 of file egbib.bib
+Repeated entry---line 162 of file egbib.bib
+ : @article{brox2008efficient
+ :                           ,
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in psnr-wiki
-(There were 2 warnings)
+Warning--can't use both volume and number fields in farbman2008edge
+Warning--can't use both volume and number fields in levin2004colorization
+(There was 1 error message)
