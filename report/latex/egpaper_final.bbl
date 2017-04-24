@@ -1,13 +1,61 @@
-\begin{thebibliography}{1}\itemsep=-1pt
+\begin{thebibliography}{10}\itemsep=-1pt
 
 \bibitem{psnr-wiki}
 Wikipedia - peak signal-to-noise ratio.
+
+\bibitem{brox2008efficient}
+T.~Brox, O.~Kleinschmidt, and D.~Cremers.
+\newblock Efficient nonlocal means for denoising of textural patterns.
+\newblock {\em IEEE Transactions on Image Processing}, 17(7):1083--1092, 2008.
+
+\bibitem{daubechies2010iteratively}
+I.~Daubechies, R.~DeVore, M.~Fornasier, and C.~S. G{\"u}nt{\"u}rk.
+\newblock Iteratively reweighted least squares minimization for sparse
+  recovery.
+\newblock {\em Communications on Pure and Applied Mathematics}, 63(1):1--38,
+  2010.
+
+\bibitem{farbman2008edge}
+Z.~Farbman, R.~Fattal, D.~Lischinski, and R.~Szeliski.
+\newblock Edge-preserving decompositions for multi-scale tone and detail
+  manipulation.
+\newblock In {\em ACM Transactions on Graphics (TOG)}, volume~27, page~67. ACM,
+  2008.
 
 \bibitem{ham2015}
 B.~Ham, M.~Cho, and J.~Ponce.
 \newblock Robust image filtering using joint static and dynamic guidance.
 \newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
   Pattern Recognition}, 2015.
+
+\bibitem{ham2015robust}
+B.~Ham, M.~Cho, and J.~Ponce.
+\newblock Robust image filtering using joint static and dynamic guidance.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 4823--4831, 2015.
+
+\bibitem{he2013guided}
+K.~He, J.~Sun, and X.~Tang.
+\newblock Guided image filtering.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  35(6):1397--1409, 2013.
+
+\bibitem{Kopf:2007:JBU:1275808.1276497}
+J.~Kopf, M.~F. Cohen, D.~Lischinski, and M.~Uyttendaele.
+\newblock Joint bilateral upsampling.
+\newblock In {\em ACM SIGGRAPH 2007 Papers}, SIGGRAPH '07, New York, NY, USA,
+  2007. ACM.
+
+\bibitem{lang2012practical}
+M.~Lang, O.~Wang, T.~Aydin, A.~Smolic, and M.~Gross.
+\newblock Practical temporal consistency for image-based graphics applications.
+\newblock {\em ACM Transactions on Graphics (ToG)}, 31(4):34, 2012.
+
+\bibitem{levin2004colorization}
+A.~Levin, D.~Lischinski, and Y.~Weiss.
+\newblock Colorization using optimization.
+\newblock In {\em ACM Transactions on Graphics (ToG)}, volume~23, pages
+  689--694. ACM, 2004.
 
 \bibitem{noise-weak-texture}
 X.~Liu, M.~Tanaka, and M.~Okutomi.
@@ -16,10 +64,41 @@ X.~Liu, M.~Tanaka, and M.~Okutomi.
 \newblock In {\em 2012 19th IEEE International Conference on Image Processing},
   pages 665--668, Sept 2012.
 
+\bibitem{ma2013constant}
+Z.~Ma, K.~He, Y.~Wei, J.~Sun, and E.~Wu.
+\newblock Constant time weighted median filtering for stereo matching and
+  beyond.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer
+  Vision}, pages 49--56, 2013.
+
+\bibitem{park2011high}
+J.~Park, H.~Kim, Y.-W. Tai, M.~S. Brown, and I.~Kweon.
+\newblock High quality depth map upsampling for 3d-tof cameras.
+\newblock In {\em Computer Vision (ICCV), 2011 IEEE International Conference
+  on}, pages 1623--1630. IEEE, 2011.
+
+\bibitem{perona1990scale}
+P.~Perona and J.~Malik.
+\newblock Scale-space and edge detection using anisotropic diffusion.
+\newblock {\em IEEE Transactions on pattern analysis and machine intelligence},
+  12(7):629--639, 1990.
+
 \bibitem{triclobs}
 A.~Toet, M.~A. Hogervorst, and A.~R. Pinkus.
 \newblock {The TRICLOBS Dynamic Multi-Band Image Data Set for the Development
   and Evaluation of Image Fusion Methods}.
 \newblock {\em PLOS ONE}, 11(12):e0165016+, Dec. 2016.
+
+\bibitem{tomasi1998bilateral}
+C.~Tomasi and R.~Manduchi.
+\newblock Bilateral filtering for gray and color images.
+\newblock In {\em Computer Vision, 1998. Sixth International Conference on},
+  pages 839--846. IEEE, 1998.
+
+\bibitem{yan2013cross}
+Q.~Yan, X.~Shen, L.~Xu, S.~Zhuo, X.~Zhang, L.~Shen, and J.~Jia.
+\newblock Cross-field joint image restoration via scale map.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer
+  Vision}, pages 1537--1544, 2013.
 
 \end{thebibliography}
