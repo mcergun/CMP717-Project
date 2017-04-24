@@ -79,7 +79,7 @@ The project can be divided into two main parts. The methodology for each part wi
 IR imaging sensors are more complicated than visible light RGB sensors. One of the problems of IR sensors is higher amounts of noise.
 For most image processing applications, especially for image de-noising, there needs to be a way to measure image quality and enhancements between pre-algorithm and post-algorithm steps.
 
-A widely used image quality metric is peak signal to noise ratio(PSNR). PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation\cite{psnr-wiki}. For SNR measurements to work correctly, original image needs to be virtually noise-free.
+A widely used image quality metric is peak signal to noise ratio(PSNR). PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation\cite{wiki:psnr}. For SNR measurements to work correctly, original image needs to be virtually noise-free.
 
 Since original images are noisy in our case we will use two different methods to estimate noise levels from the original image. Then noise levels will be used as an image quality metric. Both methods were originally meant for additive white gaussian noise, this may or may not be the case for our dataset. Thus these methods need to be evaluated as well.
 \subsubsection{Online Variance Calculation on Consecutive Frames} \label{ss:online-var}
@@ -94,16 +94,26 @@ Noise Level Estimation Using Weak Textured Patches of a Single Noisy Image\cite{
 \subsection{Filtering Framework}
 SD Filter\cite{ham2015} utilizes both static and dynamic guidance images to preserve structure of the high detailed image and local features.
 
+Filter will be tested on TRICLOBS\cite{triclobs} database. The database includes several captures of different wavelengths. Six scenarios will be tested:
+\begin{itemize}
+	\item LWIR as static guidance to NIR
+	\item LWIR as static guidance to Visible
+	\item NIR as static guidance to LWIR
+	\item NIR as static guidance to Visible
+	\item Visible as static guidance to LWIR
+	\item Visible as static guidance to NIR
+\end{itemize}
+
+Source code of the filter is available on the web via github\cite{github:sdfilter}. The code will be used on this project. If playing with parameters is not enough to get good results, the source code will be modified.
+
 \section{Experiments}
 \subsection{Sigma Estimation Methods}
 As the first part of this project, the sigma estimation methods are tested on a synthetic noisy image. Random noise with different sigma levels are added to the original noise-free image and the methods are evaluated.
 
 For testing 100 noisy images are generated to simulate a static scene for \ref{ss:online-var}. Method \ref{ss:weak-tex} is called with its default settings; patch size 7, no decimation, 0.99 confidence threshold, and 3 iterations. Noise levels for this experiment are; 2, 5, 10, 20.
 
-Table \ref{tab:sigma-est} shows results for this experiment. The results look promising for both methods. The problem with this experiment is that they might not hold true for actual sensor noise.
 \begin{table}[h!]
 	\centering
-	\label{tab:sigma-est}
 	\begin{tabular}{cccc}
 		\toprule
 		Sigma Value & Method & Estimated Value & Error Rate\\
@@ -121,8 +131,14 @@ Table \ref{tab:sigma-est} shows results for this experiment. The results look pr
 		\bottomrule
 	\end{tabular}
 	\caption{Sigma Estimation Test Results}
+	\label{tab:sigma-est}
 \end{table}
 
+\autoref{tab:sigma-est} shows results for this experiment. The results look promising for both methods. The problem with this experiment is that they might not hold true for actual sensor noise.
+
+
+\subsection{Filter Performance Evaluation}
+In this section, filters performance will be evaluated. For the first part of the project, filter is throughly evaluated to see if it will actually fit our goals or not.
 {\small
 \bibliographystyle{ieee}
 \bibliography{egbib}
