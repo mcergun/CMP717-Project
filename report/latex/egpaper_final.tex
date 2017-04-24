@@ -83,6 +83,26 @@ A widely used image quality metric is peak signal to noise ratio(PSNR). PSNR, is
 
 Since original images are noisy in our case we will use two different methods to estimate noise levels from the original image. Then noise levels will be used as an image quality metric. Both methods were originally meant for additive white gaussian noise, this may or may not be the case for our dataset. Thus these methods need to be evaluated as well.
 \subsubsection{Online Variance Calculation on Consecutive Frames} \label{ss:online-var}
+Signals are variations we are interested in and noise are variations we are not interested in. With such a similar definition, we need to have some idea of the signals characteristics before we come at a conclusion. 
+
+A useful characteristic information is variance. Variance is the expectation of the squared deviation of a random variable from its mean, and it informally measures how far a set of (random) numbers are spread out from their mean\cite{wiki:variance}. This method uses variance to estimate a noise value.
+
+\begin{displaymath}
+Var = \sum_{i=1}^{n} (p_i.x^2_i - \mu^2)
+\end{displaymath}\label{eq:disc-var}
+
+Since calculating variance with hundreds of images is a burden on both memory and CPU cycles. We can at least get rid of high memory requirement by using an online algorithm. Below equation shows the main algorithm of this method.
+
+\begin{displaymath}
+\overline{x}_n = \frac{(n - 1)\overline{x}_{n-1} + x_n}{n}
+\end{displaymath}\label{eq:disc-var}
+
+\begin{displaymath}
+s^2_n = \frac{(n - 2)}{(n - 1)}s^2_{n-1} + \frac{(x_n - \overline{x}_{n-1})^2}{n}
+\end{displaymath}\label{eq:disc-var}
+
+Here, \(x_n\) denotes new element, \(\overline{x}_n\) mean of first n samples, \(s^2_n\) sample variance.
+
 \subsubsection{Noise Level Estimation Using Weak Textured Patches of a Single Noisy Image} \label{ss:weak-tex}
 \begin{figure}
 	\includegraphics[width=0.9\columnwidth]{single_image_noise_estimation.png}
@@ -116,7 +136,7 @@ For testing 100 noisy images are generated to simulate a static scene for \ref{s
 	\centering
 	\begin{tabular}{cccc}
 		\toprule
-		Sigma Value & Method & Estimated Value & Error Rate\\
+		\bfseries Sigma Value & \bfseries Method & \bfseries Estimated Value & \bfseries Error Rate\\
 		\midrule
 		\multirow{2}{*}{\(\sigma=2\)} & Method1 & 1.99 & 0.52 \% \\
 		& Method2 & 1.93 & 3.61 \% \\
@@ -134,8 +154,9 @@ For testing 100 noisy images are generated to simulate a static scene for \ref{s
 	\label{tab:sigma-est}
 \end{table}
 
-\autoref{tab:sigma-est} shows results for this experiment. The results look promising for both methods. The problem with this experiment is that they might not hold true for actual sensor noise.
+\autoref{tab:sigma-est} shows results for this experiment. The results look promising for both methods. Estimated values are below 10 \% error mark until sigma level goes up to 30 and that is a high noise level for an 8bit image.
 
+The real problem with this experiment is that the results might not hold true for actual sensor noise. In that scenario we might have to go with adding a synthetic noise on top of an already noisy image.
 
 \subsection{Filter Performance Evaluation}
 In this section, filters performance will be evaluated. For the first part of the project, filter is throughly evaluated to see if it will actually fit our goals or not.
