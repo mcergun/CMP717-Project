@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{booktabs}
 
 % Include other packages here, before hyperref.
 
@@ -84,11 +86,11 @@ The project can be divided into two main parts. The methodology for each part wi
 IR imaging sensors are more complicated than visible light RGB sensors. One of the problems of IR sensors is higher amounts of noise.
 For most image processing applications, especially for image de-noising, there needs to be a way to measure image quality and enhancements between pre-algorithm and post-algorithm steps.
 
-A widely used image quality metric is peak signal to noise ratio(PSNR). PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation\cite{psnr-wiki}. For SNR measurements to work correctly, original image needs to be virtually noise-free.
+A widely used image quality metric is peak signal to noise ratio(PSNR). PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation\cite{wiki:psnr}. For SNR measurements to work correctly, original image needs to be virtually noise-free.
 
 Since original images are noisy in our case we will use two different methods to estimate noise levels from the original image. Then noise levels will be used as an image quality metric. Both methods were originally meant for additive white gaussian noise, this may or may not be the case for our dataset. Thus these methods need to be evaluated as well.
-\subsubsection{Online Variance Calculation on Consecutive Frames}
-\subsubsection{Noise Level Estimation Using Weak Textured Patches of a Single Noisy Image}
+\subsubsection{Online Variance Calculation on Consecutive Frames} \label{ss:online-var}
+\subsubsection{Noise Level Estimation Using Weak Textured Patches of a Single Noisy Image} \label{ss:weak-tex}
 \begin{figure}
 	\includegraphics[width=0.9\columnwidth]{single_image_noise_estimation.png}
 	\caption{Algorithm for \cite{noise-weak-texture}.}
@@ -97,15 +99,53 @@ Since original images are noisy in our case we will use two different methods to
 Noise Level Estimation Using Weak Textured Patches of a Single Noisy Image\cite{noise-weak-texture} uses low rank weak textured patches without high frequency components. Noise level is then estimated from selected patches using principal component analysis(PCA). Figure \ref{fig:alg-weak-texture} shows the overall algorithm for this method.
 
 \subsection{Filtering Framework}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec porta orci, eu porta velit. Morbi pulvinar, tortor vitae venenatis laoreet, elit ligula vehicula augue, non luctus ipsum eros eu massa. Fusce non sem varius sem sodales dapibus. Mauris urna mi, ullamcorper eget nisl vel, imperdiet lacinia dolor. Nulla facilisi. Maecenas volutpat augue suscipit ultrices hendrerit. Vestibulum suscipit diam condimentum porttitor consectetur. Etiam sit amet libero sed erat sollicitudin lobortis vitae non quam. Quisque porta sodales enim, sed malesuada mauris viverra vestibulum. Cras tempor vehicula libero at aliquet.
+SD Filter\cite{ham2015} utilizes both static and dynamic guidance images to preserve structure of the high detailed image and local features.
 
-Aliquam erat volutpat. Vestibulum pellentesque eros odio, in porta enim finibus quis. Curabitur sagittis urna et neque consectetur rutrum. Aenean pharetra efficitur accumsan. Aliquam erat volutpat. Vestibulum at dolor laoreet felis molestie sodales. Morbi dapibus quis elit sit amet aliquet. Duis vitae lorem at risus bibendum vehicula. Vestibulum neque urna, accumsan sagittis massa nec, vestibulum condimentum nisl. Pellentesque id purus vel nibh consectetur cursus. Aenean ornare erat urna, sit amet pharetra urna feugiat non. Quisque mattis, odio sed eleifend lacinia, sem leo venenatis leo, nec congue nulla nisi vitae ante. Duis aliquam sollicitudin aliquam.
+Filter will be tested on TRICLOBS\cite{triclobs} database. The database includes several captures of different wavelengths. Six scenarios will be tested:
+\begin{itemize}
+	\item LWIR as static guidance to NIR
+	\item LWIR as static guidance to Visible
+	\item NIR as static guidance to LWIR
+	\item NIR as static guidance to Visible
+	\item Visible as static guidance to LWIR
+	\item Visible as static guidance to NIR
+\end{itemize}
 
-Nam nisl nunc, efficitur a dolor et, semper convallis erat. Proin lobortis posuere turpis non pharetra. In hac habitasse platea dictumst. Maecenas finibus, nibh vitae egestas egestas, libero neque semper enim, ac venenatis metus quam non dui. Ut blandit ultrices ultrices. Mauris est neque, malesuada sed ullamcorper quis, blandit mollis mi. Nunc id lobortis sapien. Maecenas a malesuada ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse efficitur justo sit amet enim euismod accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris non ligula efficitur urna egestas euismod. Aenean semper quis lectus nec fringilla. Duis luctus sem gravida commodo malesuada. Duis consequat sollicitudin imperdiet.
+Source code of the filter is available on the web via github\cite{github:sdfilter}. The code will be used on this project. If playing with parameters is not enough to get good results, the source code will be modified.
 
 \section{Experiments}
+\subsection{Sigma Estimation Methods}
+As the first part of this project, the sigma estimation methods are tested on a synthetic noisy image. Random noise with different sigma levels are added to the original noise-free image and the methods are evaluated.
+
+For testing 100 noisy images are generated to simulate a static scene for \ref{ss:online-var}. Method \ref{ss:weak-tex} is called with its default settings; patch size 7, no decimation, 0.99 confidence threshold, and 3 iterations. Noise levels for this experiment are; 2, 5, 10, 20.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{cccc}
+		\toprule
+		Sigma Value & Method & Estimated Value & Error Rate\\
+		\midrule
+		\multirow{2}{*}{\(\sigma=2\)} & Method1 & 1.99 & 0.52 \% \\
+		& Method2 & 1.93 & 3.61 \% \\
+		\multirow{2}{*}{\(\sigma=5\)} & Method1 & 4.87 & 2.56 \% \\
+		& Method2 & 4.75 & 5.04 \% \\
+		\multirow{2}{*}{\(\sigma=10\)} & Method1 & 9.59 & 4.07 \% \\
+		& Method2 & 9.39 & 6.10 \% \\
+		\multirow{2}{*}{\(\sigma=20\)} & Method1 & 18.79 & 6.04 \% \\
+		& Method2 & 18.41 & 7.97 \% \\
+		\multirow{2}{*}{\(\sigma=30\)} & Method1 & 27.68 & 7.72 \% \\
+		& Method2 & 27.18 & 9.41 \% \\
+		\bottomrule
+	\end{tabular}
+	\caption{Sigma Estimation Test Results}
+	\label{tab:sigma-est}
+\end{table}
+
+\autoref{tab:sigma-est} shows results for this experiment. The results look promising for both methods. The problem with this experiment is that they might not hold true for actual sensor noise.
 
 
+\subsection{Filter Performance Evaluation}
+In this section, filters performance will be evaluated. For the first part of the project, filter is throughly evaluated to see if it will actually fit our goals or not.
 {\small
 \bibliographystyle{ieee}
 \bibliography{egbib}
