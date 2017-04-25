@@ -71,6 +71,7 @@ TRICLOBS(TRI-band Color Low-light OBServation) Dataset\cite{triclobs} is used fo
 
 %-------------------------------------------------------------------------
 \section{Related Work}
+
 Both static and dynamic guidance have their own advantages and disadvantages. To get better result B.Ham et al.\cite{ham2015} proposed a novel approach provides a unified model as using both static and dynamic guidance together for many applications, to handle most of the artifacts, and outperforms the state of the art in all the cases that can be seen using either static guidance and dynamic guidance.
 
 To get a better understanding, we have investigated the static and dynamic guidance seperately through Robust Image Filtering using Joint Static and Dynamic
@@ -136,6 +137,9 @@ Filter will be tested on TRICLOBS\cite{triclobs} database. The database includes
 Source code of the filter is available on the web via github\cite{github:sdfilter}. The code will be used on this project. If playing with parameters is not enough to get good results, the source code will be modified.
 
 \section{Experiments}
+
+To evaluate the performance of the SD Filter\cite{ham2015} on TRICLOBS \cite{triclobs} database, we are going to use two different sigma estimation methods. Six input-guidance scenarios is going to be tested on TRICLOBS\cite{triclobs} which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.
+
 \subsection{Sigma Estimation Methods}
 As the first part of this project, the sigma estimation methods are tested on a synthetic noisy image. Random noise with different sigma levels are added to the original noise-free image and the methods are evaluated.
 
