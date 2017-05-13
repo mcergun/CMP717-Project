@@ -9,25 +9,7 @@ addpath 'noiselevel'
 
 generate_noisy_image(folder_path, base_file, noise_sigma, image_count);
 
-[filenames, file_count] = read_file_list(folder_path);
-
-imsize = size(imread(filenames{1}));
-
-mn = double(zeros(imsize));
-var = double(zeros(imsize));
-
-sigma2 = 0.0;
-
-for i=1:file_count
-    cur_img = double(imread(filenames{i}));
-    [mn, var] = estimate_var(mn, var, cur_img, i);
-    sigma2 = sigma2 + (NoiseLevel(cur_img) - sigma2) / i;
-end
-
-sigma = sqrt(var);
-
-mean_sigma = mean2(sigma);
-mean_mn = mean2(mn);
+[ mean_sigma, sigma2 ] = estimate_folder_variance( folder_path );
 error1 = 100 * abs((mean_sigma - noise_sigma) / noise_sigma);
 error2 = 100 * abs((sigma2 - noise_sigma) / noise_sigma);
 
