@@ -1,4 +1,4 @@
-function [ im_noisy ] = generate_noisy_image_folder( folder_path, sigma )
+function generate_noisy_image_folder( folder_path, sigma )
 
 [img_list, image_count] = read_file_list(folder_path);
 
