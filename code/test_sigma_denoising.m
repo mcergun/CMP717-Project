@@ -1,4 +1,5 @@
 addpath 'noiselevel'
+addpath 'fileio'
 addpath 'SDFilter/algorithms'
 addpath 'SDFilter/graphAnalysisToolbox-1.0'
 

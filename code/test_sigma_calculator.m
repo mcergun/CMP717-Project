@@ -1,3 +1,5 @@
+addpath 'fileio'
+
 folder_path = '../data/sigma';
 base_file = 'lena.jpg';
 noise_sigma = 30;
