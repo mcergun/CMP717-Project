@@ -48,11 +48,15 @@ if(multi_image_testing)
     %     subplot(2, 1, 2)
     %     imshow(u)
 
-        [mn, var] = estimate_var(mn, var, 255 * f, i);
-        [mn2, var2] = estimate_var(mn2, var2, 255 * u, i);
+        if max(max(cur_img)) <= 1
+            cur_img = cur_img * 255; 
+        end
+    
+        [mn, var] = estimate_var(mn, var, f, i);
+        [mn2, var2] = estimate_var(mn2, var2, u, i);
 
-        sigma1 = sigma1 + (NoiseLevel(255 * f) - sigma1) / i;
-        sigma2 = sigma2 + (NoiseLevel(255 * u) - sigma2) / i;
+        sigma1 = sigma1 + (NoiseLevel(f) - sigma1) / i;
+        sigma2 = sigma2 + (NoiseLevel(u) - sigma2) / i;
     end
     
     disp(mean2(var));

@@ -14,6 +14,9 @@ sigma_m2 = 0.0;
 
 for i=1:file_count
     cur_img = double(imread(filenames{i}));
+    if max(max(cur_img)) <= 1
+       cur_img = cur_img * 255; 
+    end
     [mn, var] = estimate_var(mn, var, cur_img, i);
     sigma_m2 = sigma_m2 + (NoiseLevel(cur_img) - sigma_m2) / i;
 end
