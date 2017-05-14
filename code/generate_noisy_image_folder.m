@@ -1,6 +1,6 @@
 function generate_noisy_image_folder( folder_path, sigma )
 
-[img_list, image_count] = read_file_list(folder_path);
+[img_list, image_count] = read_image_list(folder_path);
 
 new_folder_path = [folder_path '/noisy'];
 

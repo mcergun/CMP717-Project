@@ -1,10 +1,13 @@
-function [ sigma_m1, sigma_m2, full_data ] = estimate_folder_variance( folder_path )
+function [ sigma_m1, sigma_m2, full_data ] = estimate_folder_variance( folder_path, use_file_list )
 % full_data includes 3 members: 
 % * Full mean array for method1, full_data.full_mean_m1
 % * Full variance array for method1, full_data.full_var_m1
 % * Full standard deviation array for method1, full_data.full_sigma_m1
-[filenames, file_count] = read_file_list(folder_path);
-
+if use_file_list
+    [filenames, file_count] = read_file_list(folder_path);
+else
+    [filenames, file_count] = read_image_list(folder_path);
+end
 imsize = size(imread(filenames{1}));
 
 mn = double(zeros(imsize));
