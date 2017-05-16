@@ -1,3 +1,5 @@
+addpath 'fileio'
+
 folder_path = '../data/TRI_A1';
 
 [image_paths, image_count, image_names] = read_image_list(folder_path);
