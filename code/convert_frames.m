@@ -1,5 +1,5 @@
-read_folder = '/home/mert/Downloads/TRI_A/TRI_A1/frames';
-write_folder = '../data/TRI_A1';
+read_folder = '../data/TRI_A2';
+write_folder = '../data/TRI_A2';
 
 image_list = dir(read_folder);
 image_count = size(image_list, 1);
