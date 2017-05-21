@@ -1,6 +1,4 @@
-addpath 'fileio'
-
-folder_path = '../data/TRI_A1';
+function separate_channels(folder_path)
 
 [image_paths, image_count, image_names] = read_image_list(folder_path);
 
@@ -13,7 +11,6 @@ if image_count > 0
         file_name = image_names{i};
         file_path = image_paths{i};
         im = imread(file_path);
-        extension = file_name(end-3:end);
         path1 = fullfile(folder_path, 'ch1', file_name);
         path2 = fullfile(folder_path, 'ch2', file_name);
         path3 = fullfile(folder_path, 'ch3', file_name);
@@ -21,5 +18,5 @@ if image_count > 0
         imwrite(im(:, :, 2), path2);
         imwrite(im(:, :, 3), path3);
     end
-    
+end
 end

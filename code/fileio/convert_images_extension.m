@@ -1,5 +1,4 @@
 function convert_images_extension(folder_path, new_extension)
-addpath 'fileio'
 
 [ file_paths, listsize, file_names ] = read_image_list(folder_path);
 
