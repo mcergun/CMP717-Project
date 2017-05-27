@@ -121,7 +121,7 @@ Here, \(x_n\) denotes new element, \(\overline{x}_n\) mean of first n samples, \
 \end{figure}
 Noise Level Estimation Using Weak Textured Patches of a Single Noisy Image\cite{noise-weak-texture} uses low rank weak textured patches without high frequency components. Noise level is then estimated from selected patches using principal component analysis(PCA). Figure \ref{fig:alg-weak-texture} shows the overall algorithm for this method.
 
-\subsection{Filtering Framework}
+\subsection{Filtering Framework}\label{ss:filter-framework}
 SD Filter\cite{ham2015} utilizes both static and dynamic guidance images to preserve structure of the high detailed image and local features.
 
 Filter will be tested on TRICLOBS\cite{triclobs} database. The database includes several captures of different wavelengths. Six scenarios will be tested:
@@ -172,7 +172,33 @@ For testing 100 noisy images are generated to simulate a static scene for \ref{s
 The real problem with this experiment is that the results might not hold true for actual sensor noise. In that scenario we might have to go with adding a synthetic noise on top of an already noisy image.
 
 \subsection{Filter Performance Evaluation}
-In this section, filters performance will be evaluated. For the first part of the project, filter is throughly evaluated to see if it will actually fit our goals or not.
+In this section filtering frameworks inputs and outputs will be fed to two different noise - or sigma - estimation methods. Estimated values will be used to evaluate the performance this filtering framework for various scenarios mentioned in  \ref{ss:filter-framework} -  \nameref{ss:filter-framework}. These scenarios are executed on 3 different scenes(TRI\_A1, TRI\_A2, TRI\_A4) from TRICLOBS\cite{triclobs} dataset.
+
+\subsubsection{LWIR guiding NIR}
+In this case LWIR image is used as static guidance to filter noise on NIR image. Following values are used for the scenes:
+
+\subsubsection{LWIR guiding Visible}
+In this case LWIR image is used as static guidance to filter noise on Day-light image.
+\subsubsection{NIR guiding LWIR}
+In this case NIR image is used as static guidance to filter noise on LWIR image.
+\subsubsection{NIR guiding Day-light}
+In this case NIR image is used as static guidance to filter noise on Day-light image.
+\subsubsection{Day-light guiding LWIR}
+In this case Day-light image is used as static guidance to filter noise on LWIR image.
+\subsubsection{Day-light guiding NIR}
+In this case Day-light image is used as static guidance to filter noise on NIR image.
+\begin{table}[ht]
+	\centering
+	\caption{My caption}
+	\label{my-label}
+	\begin{tabular}{@{}cccl@{}}
+		\toprule
+		\bfseries Sigma Value & \(\lambda\) & \(\mu\) & \(\nu\) \\ \midrule
+		TRI\_A1               & 1.99        & 0.52 \% & 123       \\
+		TRI\_A2               & 4.87        & 2.56 \% & 123        \\
+		TRI\_A4               & 27.68       & 7.72 \% & 123        \\ \bottomrule
+	\end{tabular}
+\end{table}
 {\small
 \bibliographystyle{ieee}
 \bibliography{egbib}
