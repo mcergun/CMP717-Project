@@ -16,13 +16,8 @@ sd_denoise_folder(input_path, guidance_path, output_path, filter_params);
 
 toc;
 
-fprintf('Estimated sigma value for input image is %0.4f and %0.4f\n', ... 
-    sigma_m11, sigma_m12);
-fprintf('Estimated sigma value for output image is %0.4f and %0.4f\n', ... 
-    sigma_m21, sigma_m22);
-
-output_vals.input_m1 = m11;
-output_vals.input_m2 = m12;
-output_vals.output_m1 = m21;
-output_vals.output_m1 = m22;
+output_vals.input_m1 = sigma_m11;
+output_vals.input_m2 = sigma_m12;
+output_vals.output_m1 = sigma_m21;
+output_vals.output_m2 = sigma_m22;
 end
