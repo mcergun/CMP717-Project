@@ -5,7 +5,10 @@ addpath noiselevel
 addpath SDFilter/algorithms
 addpath SDFilter/graphAnalysisToolbox-1.0
 
-output_path = [input_path '/filter_out'];
+guidance_loc = strfind(guidance_path, 'ch')
+
+output_path = [input_path sprintf('/filter_out__%s__L_%d__M_%d__N_%d', ...
+    guidance_path(guidance_loc:guidance_loc+2), filter_params.lambda, filter_params.mu, filter_params.nu)];
 
 tic;
 
