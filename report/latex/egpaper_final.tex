@@ -54,7 +54,7 @@ Department of Computer Engineering\\
    
    To evaluate this method's performance some image metric methods are also studied in this paper. Their performance is evaluated on AWGN.
    
-   Project code can be accessed on \href{https://github.com/mcergun/CMP717-Project}{https://github.com/mcergun/CMP717-Project}
+   Project is executed on github.com and project code can be accessed on \href{https://github.com/mcergun/CMP717-Project}{https://github.com/mcergun/CMP717-Project}
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
@@ -149,6 +149,8 @@ For testing 100 noisy images are generated to simulate a static scene for \ref{s
 
 \begin{table}[h!]
 	\centering
+	\caption{Sigma Estimation Test Results}
+	\label{tab:sigma-est}
 	\begin{tabular}{cccc}
 		\toprule
 		\bfseries Sigma Value & \bfseries Method & \bfseries Estimated Value & \bfseries Error Rate\\
@@ -165,8 +167,6 @@ For testing 100 noisy images are generated to simulate a static scene for \ref{s
 		& Method2 & 27.18 & 9.41 \% \\
 		\bottomrule
 	\end{tabular}
-	\caption{Sigma Estimation Test Results}
-	\label{tab:sigma-est}
 \end{table}
 
 \autoref{tab:sigma-est} shows results for this experiment. The results look promising for both methods. Estimated values are below 10 \% error mark until sigma level goes up to 30 and that is a high noise level for an 8bit image.
@@ -175,7 +175,21 @@ The real problem with this experiment is that the results might not hold true fo
 
 \subsection{Filter Performance Evaluation}
 In this section filtering frameworks inputs and outputs will be fed to two different noise - or sigma - estimation methods. Estimated values will be used to evaluate the performance this filtering framework for various scenarios mentioned in  \ref{ss:filter-framework} -  \nameref{ss:filter-framework}. These scenarios are executed on 3 different scenes(TRI\_A1, TRI\_A2, TRI\_A4) from TRICLOBS\cite{triclobs} dataset.
+\begin{table}[!h]
+	\centering
+	\caption{Filter parameters}
+	\label{tab:filter-parameters}
+	\begin{tabular}{ccc}
+		\hline
+		\(\lambda\) & \(\mu\) & \(\nu\) \\ \hline
+		3           & 300     & 15      \\
+		7           & 600     & 30      \\
+		15          & 900     & 45      \\ \hline
+	\end{tabular}
+\end{table}
 
+Each case is run with 27 different settings.\autoref{tab:filter-parameters} shows a combination of values used for our testing. Best values with lowest post-filter noise levels are given at each section.
+Best parameters are used to analyze the characteristics of the filter better.
 \subsubsection{LWIR guiding NIR}
 In this case LWIR image is used as static guidance to filter noise on NIR image. Following values are used for the scenes:
 \begin{table}[ht]
