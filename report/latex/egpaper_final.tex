@@ -54,7 +54,7 @@ Department of Computer Engineering\\
    
    To evaluate this method's performance some image metric methods are also studied in this paper. Their performance is evaluated on AWGN.
    
-   Project is executed on github.com and project code can be accessed on \href{https://github.com/mcergun/CMP717-Project}{https://github.com/mcergun/CMP717-Project}
+   Project is developed on github.com and code is available at \href{https://github.com/mcergun/CMP717-Project}{https://github.com/mcergun/CMP717-Project}
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
@@ -88,7 +88,8 @@ B. Ham et al. propose a novel approach to unify both static and dynamic guidance
 The project can be divided into two main parts. The methodology for each part will be discussed in following sections.
 
 \subsection{Sigma Estimation}
-IR imaging sensors are more complicated than visible light RGB sensors. One of the problems of IR sensors is higher amounts of noise.
+IR imaging sensors are more complicated than visible light RGB sensors. One of the problems of IR sensors is higher amounts of noise. 
+
 For most image processing applications, especially for image de-noising, there needs to be a way to measure image quality and enhancements between pre-algorithm and post-algorithm steps.
 
 A widely used image quality metric is peak signal to noise ratio(PSNR). PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation\cite{wiki:psnr}. For SNR measurements to work correctly, original image needs to be virtually noise-free.
@@ -123,6 +124,11 @@ Here, \(x_n\) denotes new element, \(\overline{x}_n\) mean of first n samples, \
 \end{figure}
 Noise Level Estimation Using Weak Textured Patches of a Single Noisy Image\cite{noise-weak-texture} uses low rank weak textured patches without high frequency components. Noise level is then estimated from selected patches using principal component analysis(PCA). Figure \ref{fig:alg-weak-texture} shows the overall algorithm for this method.
 
+This method is called with default parameters(\(patch\_size=7, decimation\_factor=0, confidence\_interval=0.99, iterations=3\)) in our tests.
+% patchsize (optional): patch size (default: 7)
+% decim (optional): decimation factor. If you put large number, the calculation will be accelerated. (default: 0)
+% conf (optional): confidence interval to determin the threshold for the weak texture. In this algorithm, this value is usually set the value very close to one. (default: 0.99)
+% itr (optional): number of iteration. (default: 3)
 \subsection{Filtering Framework}\label{ss:filter-framework}
 SD Filter\cite{ham2015} utilizes both static and dynamic guidance images to preserve structure of the high detailed image and local features.
 
@@ -140,12 +146,12 @@ Source code of the filter is available on the web via github\cite{github:sdfilte
 
 \section{Experiments}
 
-To evaluate the performance of the SD Filter\cite{ham2015} on TRICLOBS \cite{triclobs} database, we are going to use two different sigma estimation methods. Six input-guidance scenarios is going to be tested on TRICLOBS\cite{triclobs} which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.
+To evaluate the performance of the SD Filter\cite{ham2015} on TRICLOBS\cite{triclobs} dataset, we are going to use two different sigma estimation methods. Six input-guidance scenarios is going to be tested on TRICLOBS which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.TRICLOBS dataset features NIR and LWIR outside of visible spectrum. 
 
 \subsection{Sigma Estimation Methods}
 As the first part of this project, the sigma estimation methods are tested on a synthetic noisy image. Random noise with different sigma levels are added to the original noise-free image and the methods are evaluated.
 
-For testing 100 noisy images are generated to simulate a static scene for \ref{ss:online-var}. Method \ref{ss:weak-tex} is called with its default settings; patch size 7, no decimation, 0.99 confidence threshold, and 3 iterations. Noise levels for this experiment are; 2, 5, 10, 20.
+For testing 100 noisy images are generated from the same image to simulate a static, noisy scene for Method\ref{ss:online-var}. Method \ref{ss:weak-tex} is called with its default settings; patch size 7, no decimation, 0.99 confidence threshold, and 3 iterations. Noise levels for this experiment are; 2, 5, 10, 20 and 30.
 
 \begin{table}[h!]
 	\centering
@@ -174,7 +180,9 @@ For testing 100 noisy images are generated to simulate a static scene for \ref{s
 The real problem with this experiment is that the results might not hold true for actual sensor noise. In that scenario we might have to go with adding a synthetic noise on top of an already noisy image.
 
 \subsection{Filter Performance Evaluation}
-In this section filtering frameworks inputs and outputs will be fed to two different noise - or sigma - estimation methods. Estimated values will be used to evaluate the performance this filtering framework for various scenarios mentioned in  \ref{ss:filter-framework} -  \nameref{ss:filter-framework}. These scenarios are executed on 3 different scenes(TRI\_A1, TRI\_A2, TRI\_A4) from TRICLOBS\cite{triclobs} dataset.
+In this section filtering frameworks inputs and outputs will be fed to two different noise - or sigma - estimation methods. Estimated values will be used to evaluate the performance this filtering framework for various scenarios mentioned in  \ref{ss:filter-framework} -  \nameref{ss:filter-framework}. These scenarios are executed on 3 different scenes(TRI\_A1, TRI\_A2, TRI\_A4) from TRICLOBS\cite{triclobs} dataset. 
+
+Scenes are selected as static as possible to allow Method\ref{ss:online-var} to work. For each scene at least 10 frames are used as prior tests for sigma estimation revealed more images doesn't mean more precise value estimation.
 \begin{table}[!h]
 	\centering
 	\caption{Filter parameters}
@@ -191,11 +199,11 @@ In this section filtering frameworks inputs and outputs will be fed to two diffe
 Each case is run with 27 different settings.\autoref{tab:filter-parameters} shows a combination of values used for our testing. Best values with lowest post-filter noise levels are given at each section.
 Best parameters are used to analyze the characteristics of the filter better.
 \subsubsection{LWIR guiding NIR}
-In this case LWIR image is used as static guidance to filter noise on NIR image. Following values are used for the scenes:
-\begin{table}[ht]
+In this case LWIR image is used as static guidance to filter noise on NIR image. \autoref{tab:lwir-nir-params} shows parameters used in this experiment.
+\begin{table}[!ht]
 	\centering
-	\caption{My caption}
-	\label{my-label}
+	\caption{Parameters used for LWIR guiding NIR}
+	\label{tab:lwir-nir-params}
 	\begin{tabular}{@{}cccl@{}}
 		\toprule
 		\bfseries Sigma Value & \(\lambda\) & \(\mu\) & \(\nu\) \\ \midrule
@@ -204,12 +212,12 @@ In this case LWIR image is used as static guidance to filter noise on NIR image.
 		TRI\_A4               & 27.68       & 7.72 \% & 123        \\ \bottomrule
 	\end{tabular}
 \end{table}
-\subsubsection{LWIR guiding Visible}
-In this case LWIR image is used as static guidance to filter noise on Day-light image. Following values are used for the scenes:
-\begin{table}[ht]
+\subsubsection{LWIR guiding Day-light}
+In this case LWIR image is used as static guidance to filter noise on Day-light image. \autoref{tab:lwir-day-params} shows parameters used in this experiment.
+\begin{table}[!ht]
 	\centering
-	\caption{My caption}
-	\label{my-label}
+	\caption{Parameters used for LWIR guiding Day-light}
+	\label{tab:lwir-day-params}
 	\begin{tabular}{@{}cccl@{}}
 		\toprule
 		\bfseries Sigma Value & \(\lambda\) & \(\mu\) & \(\nu\) \\ \midrule
@@ -219,11 +227,11 @@ In this case LWIR image is used as static guidance to filter noise on Day-light 
 	\end{tabular}
 \end{table}
 \subsubsection{NIR guiding LWIR}
-In this case NIR image is used as static guidance to filter noise on LWIR image. Following values are used for the scenes:
-\begin{table}[ht]
+In this case NIR image is used as static guidance to filter noise on LWIR image. \autoref{tab:nir-lwir-params} shows parameters used in this experiment.
+\begin{table}[!ht]
 	\centering
-	\caption{My caption}
-	\label{my-label}
+	\caption{Parameters used for NIR guiding LWIR}
+	\label{tab:nir-lwir-params}
 	\begin{tabular}{@{}cccl@{}}
 		\toprule
 		\bfseries Sigma Value & \(\lambda\) & \(\mu\) & \(\nu\) \\ \midrule
@@ -233,11 +241,11 @@ In this case NIR image is used as static guidance to filter noise on LWIR image.
 	\end{tabular}
 \end{table}
 \subsubsection{NIR guiding Day-light}
-In this case NIR image is used as static guidance to filter noise on Day-light image. Following values are used for the scenes:
-\begin{table}[ht]
+In this case NIR image is used as static guidance to filter noise on Day-light image. \autoref{tab:nir-day-params} shows parameters used in this experiment.
+\begin{table}[!ht]
 	\centering
-	\caption{My caption}
-	\label{my-label}
+	\caption{Parameters used for NIR guiding Day-light}
+	\label{tab:nir-day-params}
 	\begin{tabular}{@{}cccl@{}}
 		\toprule
 		\bfseries Sigma Value & \(\lambda\) & \(\mu\) & \(\nu\) \\ \midrule
@@ -247,11 +255,11 @@ In this case NIR image is used as static guidance to filter noise on Day-light i
 	\end{tabular}
 \end{table}
 \subsubsection{Day-light guiding LWIR}
-In this case Day-light image is used as static guidance to filter noise on LWIR image. Following values are used for the scenes:
-\begin{table}[ht]
+In this case Day-light image is used as static guidance to filter noise on LWIR image. \autoref{tab:day-lwir-params} shows parameters used in this experiment.
+\begin{table}[!ht]
 	\centering
-	\caption{My caption}
-	\label{my-label}
+	\caption{Parameters used for Day-light guiding LWIR}
+	\label{tab:day-lwir-params}
 	\begin{tabular}{@{}cccl@{}}
 		\toprule
 		\bfseries Sigma Value & \(\lambda\) & \(\mu\) & \(\nu\) \\ \midrule
@@ -261,11 +269,11 @@ In this case Day-light image is used as static guidance to filter noise on LWIR 
 	\end{tabular}
 \end{table}
 \subsubsection{Day-light guiding NIR}
-In this case Day-light image is used as static guidance to filter noise on NIR image. Following values are used for the scenes:
-\begin{table}[ht]
+In this case Day-light image is used as static guidance to filter noise on NIR image. \autoref{tab:day-nir-params} shows parameters used in this experiment.
+\begin{table}[!ht]
 	\centering
-	\caption{My caption}
-	\label{my-label}
+	\caption{Parameters used for Day-light guiding NIR}
+	\label{tab:day-nir-params}
 	\begin{tabular}{@{}cccl@{}}
 		\toprule
 		\bfseries Sigma Value & \(\lambda\) & \(\mu\) & \(\nu\) \\ \midrule
