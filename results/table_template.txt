@@ -1,7 +1,7 @@
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 % \usepackage{multirow}
-\begin{table}[]
+\begin{table*}[]
 \centering
 \caption{My caption}
 \label{my-label}
@@ -21,4 +21,4 @@
                           & \multirow{2}{*}{LWIR}      & \multirow{2}{*}{}         & Day-light                    &                           \\
                           &                            &                           & NIR                          &                          
 \end{tabular}
-\end{table}
+\end{table*}
