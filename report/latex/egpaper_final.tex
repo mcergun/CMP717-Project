@@ -151,16 +151,14 @@ Source code of the filter is available on the web via github\cite{github:sdfilte
 To evaluate the performance of the SD Filter\cite{ham2015robust} on TRICLOBS\cite{triclobs} dataset, we have used two different sigma estimation methods. Six input-guidance scenarios are tested on TRICLOBS which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.TRICLOBS dataset features NIR and LWIR outside of visible spectrum. Figure \ref{fig:triclobs-fusion} shows an example image from the dataset. Figure \ref{fig:triclobs-fusion-channels} shows its channels separately.
 
 \begin{figure}
-	\label{fig:triclobs-fusion}
 	\includegraphics[width=\columnwidth]{images/TRI_A1/fusion.png}
-	\caption{One image from TRICLOBS dataset}
+	\caption{One image from TRICLOBS dataset}\label{fig:triclobs-fusion}
 \end{figure}
 \begin{figure}
-	\label{fig:triclobs-fusion-channels}
 	\includegraphics[width=0.325\columnwidth]{images/TRI_A1/ch1.png}
 	\includegraphics[width=0.325\columnwidth]{images/TRI_A1/ch2.png}
 	\includegraphics[width=0.325\columnwidth]{images/TRI_A1/ch3.png}
-	\caption{One image from TRICLOBS dataset, three separate channels}
+	\caption{One image from TRICLOBS dataset, three separate channels}\label{fig:triclobs-fusion-channels}
 \end{figure}
 \subsection{Sigma Estimation Methods}
 As the first part of this project, the sigma estimation methods are tested on a synthetic noisy image. Random noise with different sigma levels are added to the original noise-free image and the methods are evaluated.
