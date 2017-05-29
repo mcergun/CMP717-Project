@@ -50,7 +50,7 @@ Department of Computer Engineering\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-   Traditional de-noising algorithms using static and dynamic guidance images are already used. The SD Filter leverages both static and dynamic guidance together for many applications. For this project de-noising application is studied. The method uses high detail NIR image as a static guidance for de-noising an visible spectrum RGB image. In this project some other types of guided de-noising applications involving NIR, LWIR and Day-light imagery.
+   Traditional de-noising algorithms using static and dynamic guidance images are already used. The SD Filter leverages both static and dynamic guidance together for many applications. For this project de-noising application is studied. The method uses high detail NIR image as a static guidance for de-noising an visible spectrum RGB image\cite{ham2015robust} In this project some other types of guided de-noising applications involving NIR, LWIR and Day-light imagery.
    
    To evaluate this method's performance some image metric methods are also studied in this paper. Their performance is evaluated on AWGN.
    
@@ -65,19 +65,19 @@ Many tasks in image processing requires regularization in order to get good resu
 Traditional methods use static or dynamic guidance images. Static guidance regularization modulates input image with similarities between two images. It can easily reflect internal properties of the input image.
 Dynamic guidance regularization on the other hand modulates input image with similarities between neighboring pixels. It can preserve local features better than static guidance regularization.
 
-Robust Image Filtering using Joint Static and Dynamic Guidance\cite{ham2015} paper uses both static and dynamic guidance images together to keep local features and static image structures intact.
+Robust Image Filtering using Joint Static and Dynamic Guidance\cite{ham2015robust} paper uses both static and dynamic guidance images together to keep local features and static image structures intact.
 
 Infrared sensors are still developing and thus there are some intrinsic problems with Infrared Imaging(IR). These problems will be dealt with during the project.
 
-TRICLOBS(TRI-band Color Low-light OBServation) Dataset\cite{triclobs} is used for de-noising with multiple spectrum images of the same scene. The dataset includes different civilian or military scenarios executed against a special kind of hardware that records visible, NIR and LWIR spectrum. This database will be used in evaluation part of the method\cite{ham2015}.
+TRICLOBS(TRI-band Color Low-light OBServation) Dataset\cite{triclobs} is used for de-noising with multiple spectrum images of the same scene. The dataset includes different civilian or military scenarios executed against a special kind of hardware that records visible, NIR and LWIR spectrum. This database will be used in evaluation part of the method\cite{ham2015robust}.
 
 %-------------------------------------------------------------------------
 \section{Related Work}
 
-Both static and dynamic guidance have their own advantages and disadvantages. To get better result B.Ham et al.\cite{ham2015} proposed a novel approach provides a unified model as using both static and dynamic guidance together for many applications, to handle most of the artifacts, and outperforms the state of the art in all the cases that can be seen using either static guidance and dynamic guidance.
+Both static and dynamic guidance have their own advantages and disadvantages. To get better result B.Ham et al.\cite{ham2015robust} proposed a novel approach provides a unified model as using both static and dynamic guidance together for many applications, to handle most of the artifacts, and outperforms the state of the art in all the cases that can be seen using either static guidance and dynamic guidance.
 
 To get a better understanding, we have investigated the static and dynamic guidance seperately through Robust Image Filtering using Joint Static and Dynamic
-Guidance\cite{ham2015} . Static and dynamic guidance can be explicit or implicit. Implicit regularization stems from a filtering framework.\cite{ham2015}. 
+Guidance\cite{ham2015robust} . Static and dynamic guidance can be explicit or implicit. Implicit regularization stems from a filtering framework.\cite{ham2015robust}. 
 
 The structure of the guidance image is transferred to input image by filtering using a weight function that depends on the similarity of features in the input images \cite{Kopf:2007:JBU:1275808.1276497}. The bilateral filter (BF)\cite{tomasi1998bilateral}, guided filter (GF) \cite{he2013guided}, and weighted median filter (WMF) \cite{ma2013constant} have been adapted to static guidance regularization successfully. There are two representative filtering methods dynamic
 guidance are iterative nonlocal means (INM)  \cite{brox2008efficient} and the rolling-guidance filter (RGF) \cite{ham2015robust}. The filtering framework of this two approaches are the same but INM preserve texture during noise reduction, while The RGF removes texture through scale spae filtering. Even if the implementation of this implicit regularization is easy and simple, it suffers  when information is sparse, e.g., in image colarization \cite{levin2004colorization} or because of its local nature this approach might introduce artifacts, e.g., halos and gradient reversal  \cite{he2013guided}.The conditions  of implicity regularization is highly controlled, so it employed as a pre-processing and/or post-processing for further applications \cite{lang2012practical,ma2013constant}. Explicity encoding the regularization process into an objective functional is an alternative approach. Consistency between input and output images described by a fidelity term. A regularization term encourages to the ouput images to get same similar strcture between input and guidance images. These are two parts of the objective functionality.Existing regularization methods can be applied to limited range of application and have various artifacts. One of the most popular explicit regularization method that has been used  in static guidance regularization \cite{park2011high} is the weighted least-squares (WLS) framework \cite{farbman2008edge}. Anisotropic diffusion (AD) \cite{perona1990scale} is an explicit regularization framework using dynamic guidance. Quite the contrary INM \cite{brox2008efficient} and the RGF \cite{ham2015robust}, AD updates bot input and guidance images at every step iteratively. This regularization has more flexibility than implicit ones. It overcomes several limitations of implicit regularization such as halos and gradient reversal, at the cost of global intensity shifting \cite{farbman2008edge,he2013guided}.
@@ -130,7 +130,7 @@ This method is called with default parameters(\(patch\_size=7, decimation\_facto
 % conf (optional): confidence interval to determin the threshold for the weak texture. In this algorithm, this value is usually set the value very close to one. (default: 0.99)
 % itr (optional): number of iteration. (default: 3)
 \subsection{Filtering Framework}\label{ss:filter-framework}
-SD Filter\cite{ham2015} utilizes both static and dynamic guidance images to preserve structure of the high detailed image and local features.
+SD Filter\cite{ham2015robust} utilizes both static and dynamic guidance images to preserve structure of the high detailed image and local features.
 
 Filter will be tested on TRICLOBS\cite{triclobs} database. The database includes several captures of different wavelengths. Six scenarios will be tested:
 \begin{itemize}
@@ -146,7 +146,7 @@ Source code of the filter is available on the web via github\cite{github:sdfilte
 
 \section{Experiments}
 
-To evaluate the performance of the SD Filter\cite{ham2015} on TRICLOBS\cite{triclobs} dataset, we are going to use two different sigma estimation methods. Six input-guidance scenarios is going to be tested on TRICLOBS which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.TRICLOBS dataset features NIR and LWIR outside of visible spectrum. 
+To evaluate the performance of the SD Filter\cite{ham2015robust} on TRICLOBS\cite{triclobs} dataset, we are going to use two different sigma estimation methods. Six input-guidance scenarios is going to be tested on TRICLOBS which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.TRICLOBS dataset features NIR and LWIR outside of visible spectrum. 
 
 \subsection{Sigma Estimation Methods}
 As the first part of this project, the sigma estimation methods are tested on a synthetic noisy image. Random noise with different sigma levels are added to the original noise-free image and the methods are evaluated.
