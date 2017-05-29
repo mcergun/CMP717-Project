@@ -67,9 +67,9 @@ Dynamic guidance regularization on the other hand modulates input image with sim
 
 Robust Image Filtering using Joint Static and Dynamic Guidance\cite{ham2015robust} paper uses both static and dynamic guidance images together to keep local features and static image structures intact.
 
-Infrared sensors are still developing and thus there are some intrinsic problems with Infrared Imaging(IR). These problems will be dealt with during the project.
+Infrared sensors are still developing and thus there are some intrinsic problems with Infrared Imaging(IR). We tried to overcome these problems in this project.
 
-TRICLOBS(TRI-band Color Low-light OBServation) Dataset\cite{triclobs} is used for de-noising with multiple spectrum images of the same scene. The dataset includes different civilian or military scenarios executed against a special kind of hardware that records visible, NIR and LWIR spectrum. This database will be used in evaluation part of the method\cite{ham2015robust}.
+TRICLOBS(TRI-band Color Low-light OBServation) Dataset\cite{triclobs} is used for de-noising with multiple spectrum images of the same scene. The dataset includes different civilian or military scenarios executed against a special kind of hardware that records visible, NIR and LWIR spectrum. This database is used in evaluation part of the method\cite{ham2015robust}.
 
 %-------------------------------------------------------------------------
 \section{Related Work}
@@ -94,7 +94,7 @@ For most image processing applications, especially for image de-noising, there n
 
 A widely used image quality metric is peak signal to noise ratio(PSNR). PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation\cite{wiki:psnr}. For SNR measurements to work correctly, original image needs to be virtually noise-free.
 
-Since original images are noisy in our case we will use two different methods to estimate noise levels from the original image. Then noise levels will be used as an image quality metric. Both methods were originally meant for additive white gaussian noise, this may or may not be the case for our dataset. Thus these methods need to be evaluated as well.
+Since original images are noisy in our case we have used two different methods to estimate noise levels from the original image. Then estimated noise levels are used as an image quality metric. Both methods were originally meant for additive white gaussian noise, this may or may not be the case for our dataset. Thus these methods need to be evaluated as well.
 \subsubsection{Online Variance Calculation on Consecutive Frames} \label{ss:online-var}
 Signals are variations we are interested in and noise are variations we are not interested in. With such a similar definition, we need to have some idea of the signals characteristics before we come at a conclusion. 
 
@@ -132,7 +132,7 @@ This method is called with default parameters(\(patch\_size=7, decimation\_facto
 \subsection{Filtering Framework}\label{ss:filter-framework}
 SD Filter\cite{ham2015robust} utilizes both static and dynamic guidance images to preserve structure of the high detailed image and local features.
 
-Filter will be tested on TRICLOBS\cite{triclobs} database. The database includes several captures of different wavelengths. Six scenarios will be tested:
+Filter is tested on TRICLOBS\cite{triclobs} database. The database includes several captures of different wavelengths. Six scenarios are tested:
 \begin{itemize}
 	\item LWIR as static guidance to NIR
 	\item LWIR as static guidance to Visible
@@ -142,11 +142,11 @@ Filter will be tested on TRICLOBS\cite{triclobs} database. The database includes
 	\item Visible as static guidance to NIR
 \end{itemize}
 
-Source code of the filter is available on the web via github\cite{github:sdfilter}. The code will be used on this project. If playing with parameters is not enough to get good results, the source code will be modified.
+Source code of the filter is available on the web via github\cite{github:sdfilter}. The code is used directly on this project. Only parameters are changed according to needs.
 
 \section{Experiments}
 
-To evaluate the performance of the SD Filter\cite{ham2015robust} on TRICLOBS\cite{triclobs} dataset, we are going to use two different sigma estimation methods. Six input-guidance scenarios is going to be tested on TRICLOBS which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.TRICLOBS dataset features NIR and LWIR outside of visible spectrum. 
+To evaluate the performance of the SD Filter\cite{ham2015robust} on TRICLOBS\cite{triclobs} dataset, we have used two different sigma estimation methods. Six input-guidance scenarios is going to be tested on TRICLOBS which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.TRICLOBS dataset features NIR and LWIR outside of visible spectrum. 
 
 \subsection{Sigma Estimation Methods}
 As the first part of this project, the sigma estimation methods are tested on a synthetic noisy image. Random noise with different sigma levels are added to the original noise-free image and the methods are evaluated.
@@ -177,10 +177,10 @@ For testing 100 noisy images are generated from the same image to simulate a sta
 
 \autoref{tab:sigma-est} shows results for this experiment. The results look promising for both methods. Estimated values are below 10 \% error mark until sigma level goes up to 30 and that is a high noise level for an 8bit image.
 
-The real problem with this experiment is that the results might not hold true for actual sensor noise. In that scenario we might have to go with adding a synthetic noise on top of an already noisy image.
+The real problem with this experiment is that the results might not hold true for actual sensor noise. We experimented with these methods to see that the results are not 100\% true but when they are used as a relative quantity, they still serve their goal.
 
 \subsection{Filter Performance Evaluation}
-In this section filtering frameworks inputs and outputs will be fed to two different noise - or sigma - estimation methods. Estimated values will be used to evaluate the performance this filtering framework for various scenarios mentioned in  \ref{ss:filter-framework} -  \nameref{ss:filter-framework}. These scenarios are executed on 3 different scenes(TRI\_A1, TRI\_A2, TRI\_A4) from TRICLOBS\cite{triclobs} dataset. 
+In this section filtering frameworks inputs and outputs are fed to two different noise - or sigma - estimation methods. Estimated values are then used to evaluate the performance this filtering framework for various scenarios mentioned in  \ref{ss:filter-framework} -  \nameref{ss:filter-framework}. These scenarios are executed on 3 different scenes(TRI\_A1, TRI\_A2, TRI\_A4) from TRICLOBS\cite{triclobs} dataset. 
 
 Scenes are selected as static as possible to allow Method\ref{ss:online-var} to work. For each scene at least 10 frames are used as prior tests for sigma estimation revealed more images doesn't mean more precise value estimation.
 \begin{table}[!h]
