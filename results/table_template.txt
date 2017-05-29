@@ -1,24 +1,30 @@
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 % \usepackage{multirow}
-\begin{table*}[]
+\begin{table}[]
 \centering
 \caption{My caption}
 \label{my-label}
-\begin{tabular}{@{}ccccc@{}}
+\begin{tabular}{@{}lccccl@{}}
 \toprule
-\multicolumn{1}{l}{Scene} & \multicolumn{1}{l}{Input}  & \multicolumn{1}{l}{Noise} & \multicolumn{1}{l}{Guidance} & \multicolumn{1}{l}{Noise} \\ \midrule
-\multirow{6}{*}{TRI\_A1}  & \multirow{2}{*}{Day-light} & \multirow{2}{*}{}         & NIR                          &                           \\
-                          &                            &                           & LWIR                         &                           \\
-                          & \multirow{2}{*}{NIR}       & \multirow{2}{*}{}         & Day-light                    &                           \\
-                          &                            &                           & LWIR                         &                           \\
-                          & \multirow{2}{*}{LWIR}      & \multirow{2}{*}{}         & Day-light                    &                           \\
-                          &                            &                           & NIR                          &                           \\
-\multirow{6}{*}{TRI\_A2}  & \multirow{2}{*}{Day-light} & \multirow{2}{*}{}         & NIR                          &                           \\
-                          &                            &                           & LWIR                         &                           \\
-                          & \multirow{2}{*}{NIR}       & \multirow{2}{*}{}         & Day-light                    &                           \\
-                          &                            &                           & LWIR                         &                           \\
-                          & \multirow{2}{*}{LWIR}      & \multirow{2}{*}{}         & Day-light                    &                           \\
-                          &                            &                           & NIR                          &                          
+Scene                    & \multicolumn{1}{l}{Input}  & \multicolumn{1}{l}{Noise} & \multicolumn{1}{l}{Guidance} & \multicolumn{1}{l}{Noise} & Improvement \\ \midrule
+\multirow{6}{*}{TRI\_A1} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{1.789828} & NIR                          & 0.567455                  & 1.222373    \\
+                         &                            &                           & LWIR                         & 0.455966                  & 1.333862    \\
+                         & \multirow{2}{*}{NIR}       & \multirow{2}{*}{1.969543} & Day-light                    & 0.572184                  & 1.397359    \\
+                         &                            &                           & LWIR                         & 0.467454                  & 1.502088    \\
+                         & \multirow{2}{*}{LWIR}      & \multirow{2}{*}{0.949452} & Day-light                    & 0.920043                  & 0.029409    \\
+                         &                            &                           & NIR                          & 0.930077                  & 0.019376    \\ \midrule
+\multirow{6}{*}{TRI\_A2} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{2.050736} & NIR                          & 0.724389                  & 1.326347    \\
+                         &                            &                           & LWIR                         & 0.520747                  & 1.529989    \\
+                         & \multirow{2}{*}{NIR}       & \multirow{2}{*}{2.602387} & Day-light                    & 0.769321                  & 1.833066    \\
+                         &                            &                           & LWIR                         & 0.604979                  & 1.997408    \\
+                         & \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.516765} & Day-light                    & 1.478011                  & 0.038754    \\
+                         &                            &                           & NIR                          & 1.520205                  & -0.003440   \\ \midrule
+\multirow{6}{*}{TRI\_A4} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{8.144382} & NIR                          & 4.960748                  & 3.183634    \\
+                         &                            &                           & LWIR                         & 2.198469                  & 5.945912    \\
+                         & \multirow{2}{*}{NIR}       & \multirow{2}{*}{8.448172} & Day-light                    & 4.825601                  & 3.622572    \\
+                         &                            &                           & LWIR                         & 2.033297                  & 6.414876    \\
+                         & \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.833718} & Day-light                    & 2.025902                  & -0.192184   \\
+                         &                            &                           & NIR                          & 2.027278                  & -0.193560   \\ \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
