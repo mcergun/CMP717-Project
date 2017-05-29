@@ -181,12 +181,16 @@ For testing 100 noisy images are generated from the same image to simulate a sta
 		\midrule
 		\multirow{2}{*}{\(\sigma=2\)} & Method1 & 1.99 & 0.52 \% \\
 		& Method2 & 1.93 & 3.61 \% \\
+		\midrule
 		\multirow{2}{*}{\(\sigma=5\)} & Method1 & 4.87 & 2.56 \% \\
 		& Method2 & 4.75 & 5.04 \% \\
+		\midrule
 		\multirow{2}{*}{\(\sigma=10\)} & Method1 & 9.59 & 4.07 \% \\
 		& Method2 & 9.39 & 6.10 \% \\
+		\midrule
 		\multirow{2}{*}{\(\sigma=20\)} & Method1 & 18.79 & 6.04 \% \\
 		& Method2 & 18.41 & 7.97 \% \\
+		\midrule
 		\multirow{2}{*}{\(\sigma=30\)} & Method1 & 27.68 & 7.72 \% \\
 		& Method2 & 27.18 & 9.41 \% \\
 		\bottomrule
@@ -303,11 +307,11 @@ In this case Day-light image is used as static guidance to filter noise on NIR i
 
 After running these scenarios, Method \ref{ss:weak-tex} failed to estimate noise level for some of the images. Thus Method \ref{ss:online-var} is used to find parameters with least noise.
 
-\begin{table*}[]
+\begin{table*}[t]
 	\centering
 	\caption{My caption}
 	\label{my-label}
-	\begin{tabular}{@{}lccccl@{}}
+	\begin{tabular}{@{}llllll@{}}
 		\toprule
 		Scene                    & \multicolumn{1}{l}{Input}  & \multicolumn{1}{l}{Noise} & \multicolumn{1}{l}{Guidance} & \multicolumn{1}{l}{Noise} & Improvement \\ \midrule
 		\multirow{6}{*}{TRI\_A1} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{1.789828} & NIR                          & 0.567455                  & 1.222373    \\
