@@ -53,6 +53,8 @@ for scr=1:sz(1)
     end
 end
 
+best_array = []
+
 % mu_axis = meshgrid(1:3);
 % [a,nu_axis] = meshgrid(1:3);
 % 
