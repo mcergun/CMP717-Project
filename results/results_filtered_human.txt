@@ -1,0 +1,42 @@
+---------------------
+---METHOD1 Results---
+---------------------
+Best value for scene TRI_A1, "NIR-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.567455
+Best value for scene TRI_A2, "NIR-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.724389
+Best value for scene TRI_A4, "NIR-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=4.960748
+Best value for scene TRI_A1, "LWI-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.455966
+Best value for scene TRI_A2, "LWI-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.520747
+Best value for scene TRI_A4, "LWI-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=2.198469
+Best value for scene TRI_A1, "Vis-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.572184
+Best value for scene TRI_A2, "Vis-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.769321
+Best value for scene TRI_A4, "Vis-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=4.825601
+Best value for scene TRI_A1, "LWI-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.467454
+Best value for scene TRI_A2, "LWI-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.604979
+Best value for scene TRI_A4, "LWI-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=2.033297
+Best value for scene TRI_A1, "Vis-Gui-LWI" is lambda= 3, mu=3000, nu= 450, val=0.920043
+Best value for scene TRI_A2, "Vis-Gui-LWI" is lambda= 3, mu=3000, nu= 150, val=1.478011
+Best value for scene TRI_A4, "Vis-Gui-LWI" is lambda= 3, mu=3000, nu= 450, val=2.025902
+Best value for scene TRI_A1, "NIR-Gui-LWI" is lambda= 3, mu=3000, nu= 450, val=0.930077
+Best value for scene TRI_A2, "NIR-Gui-LWI" is lambda= 3, mu=3000, nu= 150, val=1.520205
+Best value for scene TRI_A4, "NIR-Gui-LWI" is lambda= 3, mu=3000, nu= 450, val=2.027278
+---------------------
+---METHOD2 Results---
+---------------------
+Best value for scene TRI_A1, "NIR-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.158450
+Best value for scene TRI_A2, "NIR-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.167569
+Best value for scene TRI_A4, "NIR-Gui-Vis" is lambda= 3, mu=3000, nu= 450, val=0.439899
+Best value for scene TRI_A1, "LWI-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.078325
+Best value for scene TRI_A2, "LWI-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.092598
+Best value for scene TRI_A4, "LWI-Gui-Vis" is lambda=15, mu=3000, nu= 150, val=0.173984
+Best value for scene TRI_A1, "Vis-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.146817
+Best value for scene TRI_A2, "Vis-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.172666
+Best value for scene TRI_A4, "Vis-Gui-NIR" is lambda= 3, mu=3000, nu= 150, val=0.452405
+Best value for scene TRI_A1, "LWI-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.056021
+Best value for scene TRI_A2, "LWI-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.137215
+Best value for scene TRI_A4, "LWI-Gui-NIR" is lambda=15, mu=3000, nu= 150, val=0.168307
+Best value for scene TRI_A1, "Vis-Gui-LWI" is lambda= 3, mu=3000, nu= 450, val=0.083407
+Best value for scene TRI_A2, "Vis-Gui-LWI" is lambda= 3, mu=3000, nu= 150, val=0.053505
+Best value for scene TRI_A4, "Vis-Gui-LWI" is lambda= 3, mu=9000, nu= 450, val=0.076146
+Best value for scene TRI_A1, "NIR-Gui-LWI" is lambda= 3, mu=3000, nu= 450, val=0.071737
+Best value for scene TRI_A2, "NIR-Gui-LWI" is lambda= 3, mu=3000, nu= 150, val=0.046522
+Best value for scene TRI_A4, "NIR-Gui-LWI" is lambda= 3, mu=9000, nu= 450, val=0.079988
