@@ -11,6 +11,8 @@
 \usepackage[normalem]{ulem}
 \useunder{\uline}{\ul}{}
 
+\newcommand{\addimage}[2]{\includegraphics[width=#1\textwidth]{#2}}
+
 % Include other packages here, before hyperref.
 
 % If you comment hyperref and then uncomment it, you should delete
@@ -305,35 +307,51 @@ In this case Day-light image is used as static guidance to filter noise on NIR i
 	\end{tabular}
 \end{table}
 
-After running these scenarios, Method \ref{ss:weak-tex} failed to estimate noise level for some of the images. Thus Method \ref{ss:online-var} is used to find parameters with least noise.
+After running these scenarios, Method \ref{ss:weak-tex} failed to estimate noise level for some of the images. Thus Method \ref{ss:online-var} is used to find parameters with least noise. Figure XXX shows input and outputs of 18 scenarios.
+\begin{figure*}
+	\addimage{0.16}{images/TRI_A1/ch1.png}
+	\addimage{0.16}{images/TRI_A1/ch2.png}
+	\addimage{0.16}{images/TRI_A1/ch3.png}
+	\addimage{0.16}{images/TRI_A2/ch1.png}	
+	\addimage{0.16}{images/TRI_A2/ch2.png}
+	\addimage{0.16}{images/TRI_A2/ch3.png}
+	\addimage{0.16}{images/TRI_A1/ch1_ch3_15_3000_150.png}	
+	\addimage{0.16}{images/TRI_A1/ch2.png}
+	\addimage{0.16}{images/TRI_A1/ch1.png}
+	\addimage{0.16}{images/TRI_A1/ch2_ch1_15_3000_150.png}
+	\caption{Input and output from SD filter}\label{fig:example-input-output}
+\end{figure*}
 
-\begin{table*}[t]
+\bgroup
+\def\arraystretch{1.25}\setlength{\tabcolsep}{1.7em}
+\begin{table*}[]
 	\centering
 	\caption{My caption}
 	\label{my-label}
-	\begin{tabular}{@{}llllll@{}}
-		\toprule
-		Scene                    & \multicolumn{1}{l}{Input}  & \multicolumn{1}{l}{Noise} & \multicolumn{1}{l}{Guidance} & \multicolumn{1}{l}{Noise} & Improvement \\ \midrule
-		\multirow{6}{*}{TRI\_A1} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{1.789828} & NIR                          & 0.567455                  & 1.222373    \\
-		&                            &                           & LWIR                         & 0.455966                  & 1.333862    \\
-		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{1.969543} & Day-light                    & 0.572184                  & 1.397359    \\
-		&                            &                           & LWIR                         & 0.467454                  & 1.502088    \\
-		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{0.949452} & Day-light                    & 0.920043                  & 0.029409    \\
-		&                            &                           & NIR                          & 0.930077                  & 0.019376    \\ \midrule
-		\multirow{6}{*}{TRI\_A2} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{2.050736} & NIR                          & 0.724389                  & 1.326347    \\
-		&                            &                           & LWIR                         & 0.520747                  & 1.529989    \\
-		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{2.602387} & Day-light                    & 0.769321                  & 1.833066    \\
-		&                            &                           & LWIR                         & 0.604979                  & 1.997408    \\
-		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.516765} & Day-light                    & 1.478011                  & 0.038754    \\
-		&                            &                           & NIR                          & 1.520205                  & -0.003440   \\ \midrule
-		\multirow{6}{*}{TRI\_A4} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{8.144382} & NIR                          & 4.960748                  & 3.183634    \\
-		&                            &                           & LWIR                         & 2.198469                  & 5.945912    \\
-		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{8.448172} & Day-light                    & 4.825601                  & 3.622572    \\
-		&                            &                           & LWIR                         & 2.033297                  & 6.414876    \\
-		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.833718} & Day-light                    & 2.025902                  & -0.192184   \\
-		&                            &                           & NIR                          & 2.027278                  & -0.193560   \\ \bottomrule
+	\begin{tabular}{llllll}
+		\hline
+		Scene                    & Input                      & Noise Value               & Guidance  & Noise Value & Improvement \\ \hline
+		\multirow{6}{*}{TRI\_A1} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{1.789828} & NIR       & 0.567455 & 1.222373    \\
+		&                            &                           & LWIR      & 0.455966 & 1.333862    \\ \cline{2-6} 
+		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{1.969543} & Day-light & 0.572184 & 1.397359    \\
+		&                            &                           & LWIR      & 0.467454 & 1.502088    \\ \cline{2-6} 
+		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{0.949452} & Day-light & 0.920043 & 0.029409    \\
+		&                            &                           & NIR       & 0.930077 & 0.019376    \\ \hline
+		\multirow{6}{*}{TRI\_A2} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{2.050736} & NIR       & 0.724389 & 1.326347    \\
+		&                            &                           & LWIR      & 0.520747 & 1.529989    \\ \cline{2-6} 
+		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{2.602387} & Day-light & 0.769321 & 1.833066    \\
+		&                            &                           & LWIR      & 0.604979 & 1.997408    \\ \cline{2-6} 
+		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.516765} & Day-light & 1.478011 & 0.038754    \\
+		&                            &                           & NIR       & 1.520205 & -0.003440   \\ \hline
+		\multirow{6}{*}{TRI\_A4} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{8.144382} & NIR       & 4.960748 & 3.183634    \\
+		&                            &                           & LWIR      & 2.198469 & 5.945912    \\ \cline{2-6} 
+		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{8.448172} & Day-light & 4.825601 & 3.622572    \\
+		&                            &                           & LWIR      & 2.033297 & 6.414876    \\ \cline{2-6} 
+		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.833718} & Day-light & 2.025902 & -0.192184   \\
+		&                            &                           & NIR       & 2.027278 & -0.193560   \\ \hline
 	\end{tabular}
 \end{table*}
+\egroup
 
 {\small
 \bibliographystyle{ieee}
