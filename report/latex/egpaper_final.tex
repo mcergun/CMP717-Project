@@ -221,8 +221,9 @@
 		\end{tabular}
 	\end{table}
 	
-	Each case is run with 27 different settings.\autoref{tab:filter-parameters} shows a combination of values used for our testing. Best values with lowest post-filter noise levels are given at each section.
-	Best parameters are used to analyze the characteristics of the filter better.
+	Each case is run with 27 different settings.\autoref{tab:filter-parameters} shows a combination of values used for our testing. Base values ()\(\lambda=7, \mu=600, \nu=30\)) are selected because they were frequently used on the original paper. Then they are added and subtracted 50\% of their value to see their effect on the output. 
+	
+	Best values with lowest post-filter noise levels are given at each section. Best parameters are used to analyze the characteristics of the filter better.
 	\subsubsection{LWIR guiding NIR}
 	In this case LWIR image is used as static guidance to filter noise on NIR image. \autoref{tab:lwir-nir-params} shows parameters used in this experiment.
 	\begin{table}[!ht]
@@ -307,84 +308,106 @@
 			TRI\_A4               & 15       	& 300	  & 15       \\ \bottomrule
 		\end{tabular}
 	\end{table}
+
+	\newcolumntype{C}{>{\centering\arraybackslash}m{11em}}
+\begin{table*}\sffamily
+	\caption{TRI\_A1 scene: Input images(left), guidance images(top), and their outputs(middle)}\label{tab:tri_a1_outs}
+	\begin{tabular}{C|CCC@{}}
+		\toprule
+		Input/Guidance & \addimage{9}{images/TRI_A1/ch1.png} & \addimage{9}{images/TRI_A1/ch2.png} & \addimage{9}{images/TRI_A1/ch3.png} \\ 
+		\midrule
+		\addimage{9}{images/TRI_A1/ch1.png} & N/A & \addimage{9}{images/TRI_A1/ch1_ch2_15_3000_150.png} & \addimage{9}{images/TRI_A1/ch1_ch3_15_3000_150.png} \\ 
+		\addimage{9}{images/TRI_A1/ch2.png} & \addimage{9}{images/TRI_A1/ch2_ch1_15_3000_150.png} & N/A & \addimage{9}{images/TRI_A1/ch2_ch3_15_3000_150.png} \\ 
+		\addimage{9}{images/TRI_A1/ch3.png} & \addimage{9}{images/TRI_A1/ch3_ch1_3_3000_450.png} & \addimage{9}{images/TRI_A1/ch3_ch2_3_3000_450.png} & N/A \\  
+		\bottomrule 
+	\end{tabular}
+\end{table*} 
+
+
+\newcolumntype{C}{>{\centering\arraybackslash}m{11em}}
+\begin{table*}\sffamily
+	\caption{TRI\_A2 scene: Input images(left), guidance images(top), and their outputs(middle)}\label{tab:tri_a2_outs}
+	\begin{tabular}{C|CCC@{}}
+		\toprule
+		Input/Guidance & \addimage{9}{images/TRI_A2/ch1.png} & \addimage{9}{images/TRI_A2/ch2.png} & \addimage{9}{images/TRI_A2/ch3.png} \\ 
+		\midrule
+		\addimage{9}{images/TRI_A2/ch1.png} & N/A & \addimage{9}{images/TRI_A2/ch1_ch2_15_3000_150.png} & \addimage{9}{images/TRI_A2/ch1_ch3_15_3000_150.png} \\ 
+		\addimage{9}{images/TRI_A2/ch2.png} & \addimage{9}{images/TRI_A2/ch2_ch1_15_3000_150.png} & N/A & \addimage{9}{images/TRI_A2/ch2_ch3_15_3000_150.png} \\ 
+		\addimage{9}{images/TRI_A2/ch3.png} & \addimage{9}{images/TRI_A2/ch3_ch1_3_3000_150.png} & \addimage{9}{images/TRI_A2/ch3_ch2_3_3000_150.png} & N/A \\  
+		\bottomrule 
+	\end{tabular}
+\end{table*} 	
+
+\newcolumntype{C}{>{\centering\arraybackslash}m{11em}}
+\begin{table*}\sffamily
+	\caption{TRI\_A4 scene: Input images(left), guidance images(top), and their outputs(middle)}\label{tab:tri_a4_outs}
+	\begin{tabular}{C|CCC@{}}
+		\toprule
+		Input/Guidance & \addimage{9}{images/TRI_A4/ch1.png} & \addimage{9}{images/TRI_A4/ch2.png} & \addimage{9}{images/TRI_A4/ch3.png} \\ 
+		\midrule
+		\addimage{9}{images/TRI_A4/ch1.png} & N/A & \addimage{9}{images/TRI_A4/ch1_ch2_15_3000_150.png} & \addimage{9}{images/TRI_A4/ch1_ch3_15_3000_150.png} \\ 
+		\addimage{9}{images/TRI_A4/ch2.png} & \addimage{9}{images/TRI_A4/ch2_ch1_15_3000_150.png} & N/A & \addimage{9}{images/TRI_A4/ch2_ch3_15_3000_150.png} \\ 
+		\addimage{9}{images/TRI_A4/ch3.png} & \addimage{9}{images/TRI_A4/ch3_ch1_3_3000_450.png} & \addimage{9}{images/TRI_A4/ch3_ch2_3_3000_450.png} & N/A \\  
+		\bottomrule 
+	\end{tabular}
+\end{table*} 
+
+\bgroup
+\def\arraystretch{1.25}\setlength{\tabcolsep}{1.7em}
+\begin{table*}[]
+	\centering
+	\caption{Noise Values Before and After SD Filter to each Scene-Scenario Pair}
+	\label{tab:noise-outputs}
+	\begin{tabular}{llllll}
+		\hline
+		Scene                    & Input                      & Noise Value               & Guidance  & Noise Value & Improvement \\ \hline
+		\multirow{6}{*}{TRI\_A1} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{1.789828} & NIR       & 0.567455 & 1.222373    \\
+		&                            &                           & LWIR      & 0.455966 & 1.333862    \\ \cline{2-6} 
+		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{1.969543} & Day-light & 0.572184 & 1.397359    \\
+		&                            &                           & LWIR      & 0.467454 & 1.502088    \\ \cline{2-6} 
+		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{0.949452} & Day-light & 0.920043 & 0.029409    \\
+		&                            &                           & NIR       & 0.930077 & 0.019376    \\ \hline
+		\multirow{6}{*}{TRI\_A2} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{2.050736} & NIR       & 0.724389 & 1.326347    \\
+		&                            &                           & LWIR      & 0.520747 & 1.529989    \\ \cline{2-6} 
+		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{2.602387} & Day-light & 0.769321 & 1.833066    \\
+		&                            &                           & LWIR      & 0.604979 & 1.997408    \\ \cline{2-6} 
+		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.516765} & Day-light & 1.478011 & 0.038754    \\
+		&                            &                           & NIR       & 1.520205 & -0.003440   \\ \hline
+		\multirow{6}{*}{TRI\_A4} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{8.144382} & NIR       & 4.960748 & 3.183634    \\
+		&                            &                           & LWIR      & 2.198469 & 5.945912    \\ \cline{2-6} 
+		& \multirow{2}{*}{NIR}       & \multirow{2}{*}{8.448172} & Day-light & 4.825601 & 3.622572    \\
+		&                            &                           & LWIR      & 2.033297 & 6.414876    \\ \cline{2-6} 
+		& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.833718} & Day-light & 2.025902 & -0.192184   \\
+		&                            &                           & NIR       & 2.027278 & -0.193560   \\ \hline
+	\end{tabular}
+	
+\end{table*}
+\egroup
+
 \subsection{Comparision and Results}	
 	After running these scenarios, Method \ref{ss:weak-tex} failed to estimate noise level for some of the images. Thus Method \ref{ss:online-var} is used to find parameters with least noise. Tables \ref{tab:tri_a1_outs}, \ref{tab:tri_a2_outs}, \ref{tab:tri_a4_outs} shows input, guidance and output images for TRI\_A1, TRI\_A2 and TRI\_A4 scenes accordingly.
 	
-	\newcolumntype{C}{>{\centering\arraybackslash}m{11em}}
-	\begin{table*}\sffamily
-		\caption{TRI\_A1 scene: Input images(left), guidance images(top), and their outputs(middle)}\label{tab:tri_a1_outs}
-		\begin{tabular}{C|CCC@{}}
-			\toprule
-			Input/Guidance & \addimage{9}{images/TRI_A1/ch1.png} & \addimage{9}{images/TRI_A1/ch2.png} & \addimage{9}{images/TRI_A1/ch3.png} \\ 
-			\midrule
-			\addimage{9}{images/TRI_A1/ch1.png} & N/A & \addimage{9}{images/TRI_A1/ch1_ch2_15_3000_150.png} & \addimage{9}{images/TRI_A1/ch1_ch3_15_3000_150.png} \\ 
-			\addimage{9}{images/TRI_A1/ch2.png} & \addimage{9}{images/TRI_A1/ch2_ch1_15_3000_150.png} & N/A & \addimage{9}{images/TRI_A1/ch2_ch3_15_3000_150.png} \\ 
-			\addimage{9}{images/TRI_A1/ch3.png} & \addimage{9}{images/TRI_A1/ch3_ch1_3_3000_450.png} & \addimage{9}{images/TRI_A1/ch3_ch2_3_3000_450.png} & N/A \\  
-			\bottomrule 
-		\end{tabular}
-	\end{table*} 
+	When calculating best parameters, we have seen that for highly detailed images with low contrast(i.e LWIR images) it is better to use a small \(\lambda\) value.
 	
+	Another take-away information was that the best cases were met when LWIR images are used as static guidance to highly noisy visible or NIR frames. 
 	
-	\newcolumntype{C}{>{\centering\arraybackslash}m{11em}}
-	\begin{table*}\sffamily
-		\caption{TRI\_A2 scene: Input images(left), guidance images(top), and their outputs(middle)}\label{tab:tri_a2_outs}
-		\begin{tabular}{C|CCC@{}}
-			\toprule
-			Input/Guidance & \addimage{9}{images/TRI_A2/ch1.png} & \addimage{9}{images/TRI_A2/ch2.png} & \addimage{9}{images/TRI_A2/ch3.png} \\ 
-			\midrule
-			\addimage{9}{images/TRI_A2/ch1.png} & N/A & \addimage{9}{images/TRI_A2/ch1_ch2_15_3000_150.png} & \addimage{9}{images/TRI_A2/ch1_ch3_15_3000_150.png} \\ 
-			\addimage{9}{images/TRI_A2/ch2.png} & \addimage{9}{images/TRI_A2/ch2_ch1_15_3000_150.png} & N/A & \addimage{9}{images/TRI_A2/ch2_ch3_15_3000_150.png} \\ 
-			\addimage{9}{images/TRI_A2/ch3.png} & \addimage{9}{images/TRI_A2/ch3_ch1_3_3000_150.png} & \addimage{9}{images/TRI_A2/ch3_ch2_3_3000_150.png} & N/A \\  
-			\bottomrule 
-		\end{tabular}
-	\end{table*} 	
+	The opposite happens when visible or NIR frames are used as static guidance to LWIR frames with low noise. Table \ref{tab:noise-outputs} shows some cases for LWIR frames to worsen their image quality with the filter.
 	
-	\newcolumntype{C}{>{\centering\arraybackslash}m{11em}}
-	\begin{table*}\sffamily
-		\caption{TRI\_A4 scene: Input images(left), guidance images(top), and their outputs(middle)}\label{tab:tri_a4_outs}
-		\begin{tabular}{C|CCC@{}}
-			\toprule
-			Input/Guidance & \addimage{9}{images/TRI_A4/ch1.png} & \addimage{9}{images/TRI_A4/ch2.png} & \addimage{9}{images/TRI_A4/ch3.png} \\ 
-			\midrule
-			\addimage{9}{images/TRI_A4/ch1.png} & N/A & \addimage{9}{images/TRI_A4/ch1_ch2_15_3000_150.png} & \addimage{9}{images/TRI_A4/ch1_ch3_15_3000_150.png} \\ 
-			\addimage{9}{images/TRI_A4/ch2.png} & \addimage{9}{images/TRI_A4/ch2_ch1_15_3000_150.png} & N/A & \addimage{9}{images/TRI_A4/ch2_ch3_15_3000_150.png} \\ 
-			\addimage{9}{images/TRI_A4/ch3.png} & \addimage{9}{images/TRI_A4/ch3_ch1_3_3000_450.png} & \addimage{9}{images/TRI_A4/ch3_ch2_3_3000_450.png} & N/A \\  
-			\bottomrule 
-		\end{tabular}
-	\end{table*} 
-	
-	\bgroup
-	\def\arraystretch{1.25}\setlength{\tabcolsep}{1.7em}
-	\begin{table*}[]
-		\centering
-				\caption{Noise Values Before and After SD Filter to each Scene-Scenario Pair}
-		\label{tableNoiseLevelImprovements}
-		\begin{tabular}{llllll}
-			\hline
-			Scene                    & Input                      & Noise Value               & Guidance  & Noise Value & Improvement \\ \hline
-			\multirow{6}{*}{TRI\_A1} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{1.789828} & NIR       & 0.567455 & 1.222373    \\
-			&                            &                           & LWIR      & 0.455966 & 1.333862    \\ \cline{2-6} 
-			& \multirow{2}{*}{NIR}       & \multirow{2}{*}{1.969543} & Day-light & 0.572184 & 1.397359    \\
-			&                            &                           & LWIR      & 0.467454 & 1.502088    \\ \cline{2-6} 
-			& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{0.949452} & Day-light & 0.920043 & 0.029409    \\
-			&                            &                           & NIR       & 0.930077 & 0.019376    \\ \hline
-			\multirow{6}{*}{TRI\_A2} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{2.050736} & NIR       & 0.724389 & 1.326347    \\
-			&                            &                           & LWIR      & 0.520747 & 1.529989    \\ \cline{2-6} 
-			& \multirow{2}{*}{NIR}       & \multirow{2}{*}{2.602387} & Day-light & 0.769321 & 1.833066    \\
-			&                            &                           & LWIR      & 0.604979 & 1.997408    \\ \cline{2-6} 
-			& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.516765} & Day-light & 1.478011 & 0.038754    \\
-			&                            &                           & NIR       & 1.520205 & -0.003440   \\ \hline
-			\multirow{6}{*}{TRI\_A4} & \multirow{2}{*}{Day-light} & \multirow{2}{*}{8.144382} & NIR       & 4.960748 & 3.183634    \\
-			&                            &                           & LWIR      & 2.198469 & 5.945912    \\ \cline{2-6} 
-			& \multirow{2}{*}{NIR}       & \multirow{2}{*}{8.448172} & Day-light & 4.825601 & 3.622572    \\
-			&                            &                           & LWIR      & 2.033297 & 6.414876    \\ \cline{2-6} 
-			& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.833718} & Day-light & 2.025902 & -0.192184   \\
-			&                            &                           & NIR       & 2.027278 & -0.193560   \\ \hline
-		\end{tabular}
-
-	\end{table*}
-	\egroup
 \section{Conclusions}	
+	Robust Image Filtering using Joint Static and Dynamic Guidance\cite{ham2015robust} method has many uses available such as super-resolution, de-noising, texture removal, etc. and in this project de-noising application is investigated. 
+	
+	To evaluate the performance of the method, we tried to come up with ways of estimating inherent noise in the images. Two methods have been tested on this approach:
+	\begin{itemize}
+		\item Online Variance Calculation on Consecutive Frames
+		\item Noise Level Estimation Using Weak Textured Patches of a Single Noisy Image\cite{noise-weak-texture}
+	\end{itemize}
+
+	These methods have been tested on AWGN and inherent noise scenarios. While their performance was similar on AWGN scenarios, in some real noise scenarios, second method failed to calculate the noise. Because of this, for some parts of the experiment, results of second method have been omitted.
+	
+	These tests revealed some strong and weak points for these noise estimation methods. For example, the first method can work most of the time but has a dependency on the "static-ness" of the scene. The second method has no dependency on the scene and it can leverage pixel and patch information while first method can not.
+	
+	On the second part of the project, we have filtered hundreds of images. Since second noise estimation method was more likely to fail, we fell back to the first method and this limited us to static scenes with little to no movement.
+	
 
 	{\small
 		\bibliographystyle{ieee}
