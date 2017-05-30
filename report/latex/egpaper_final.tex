@@ -95,7 +95,7 @@
 	B. Ham et al. propose a novel approach to unify both static and dynamic guidance to get both of their advantages. They applied their models to RGB/NIR and flash/non-flash denoising problems. It can be seen easily from their results, their methods handles most of the artifacts and outperforms the state of the art.Although their proposed model may look similar to WLS \cite{farbman2008edge} and the RGF \cite{yan2013cross}, their nonconvex objective function needs a different solver. Contrary to iteratively reweighted least-squares (IRLS) \cite{daubechies2010iteratively} regularizer but approximate the objective function by a surrogate (upper-bound) function.
 	
 	
-	\section{Methodology}
+	\section{The Approach}
 	The project can be divided into two main parts. The methodology for each part will be discussed in following sections.
 	
 	\subsection{Sigma Estimation}
@@ -155,7 +155,7 @@
 	
 	Source code of the filter is available on the web via github\cite{github:sdfilter}. The code is used directly on this project. Only parameters are changed according to needs.
 	
-	\section{Experiments}
+	\section{Experimental Results}
 	
 	To evaluate the performance of the SD Filter\cite{ham2015robust} on TRICLOBS\cite{triclobs} dataset, we have used two different sigma estimation methods. Six input-guidance scenarios are tested on TRICLOBS which has  16 different motion sequences representing different military and civilian surveillance scenarios dataset.TRICLOBS dataset features NIR and LWIR outside of visible spectrum. Figure \ref{fig:triclobs-fusion} shows an example image from the dataset. Figure \ref{fig:triclobs-fusion-channels} shows its channels separately.
 	
@@ -307,7 +307,7 @@
 			TRI\_A4               & 15       	& 300	  & 15       \\ \bottomrule
 		\end{tabular}
 	\end{table}
-	
+\subsection{Comparision and Results}	
 	After running these scenarios, Method \ref{ss:weak-tex} failed to estimate noise level for some of the images. Thus Method \ref{ss:online-var} is used to find parameters with least noise. Tables \ref{tab:tri_a1_outs}, \ref{tab:tri_a2_outs}, \ref{tab:tri_a4_outs} shows input, guidance and output images for TRI\_A1, TRI\_A2 and TRI\_A4 scenes accordingly.
 	
 	\newcolumntype{C}{>{\centering\arraybackslash}m{11em}}
@@ -357,8 +357,8 @@
 	\def\arraystretch{1.25}\setlength{\tabcolsep}{1.7em}
 	\begin{table*}[]
 		\centering
-		\caption{My caption}
-		\label{my-label}
+				\caption{Noise Values Before and After SD Filter to each Scene-Scenario Pair}
+		\label{tableNoiseLevelImprovements}
 		\begin{tabular}{llllll}
 			\hline
 			Scene                    & Input                      & Noise Value               & Guidance  & Noise Value & Improvement \\ \hline
@@ -381,6 +381,7 @@
 			& \multirow{2}{*}{LWIR}      & \multirow{2}{*}{1.833718} & Day-light & 2.025902 & -0.192184   \\
 			&                            &                           & NIR       & 2.027278 & -0.193560   \\ \hline
 		\end{tabular}
+
 	\end{table*}
 	\egroup
 	
