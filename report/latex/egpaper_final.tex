@@ -59,7 +59,8 @@
 		
 		To evaluate this method's performance some image metric methods are also studied in this paper. Their performance is evaluated on AWGN.
 		The characteristic of SD Filter\cite{ham2015robust} is better understood with the evaluation for multi-spectral image de-noising.
-		We kept the source code open by staying true to the original paper\cite{ham2015robust}, it is available at Github.\footnote{\href{https://github.com/mcergun/CMP717-Project}{https://github.com/mcergun/CMP717-Project}}
+		
+		We kept the source code open by sticking to the original authors' decision\cite{github:sdfilter}, it is available at Github.\footnote{\href{https://github.com/mcergun/CMP717-Project}{https://github.com/mcergun/CMP717-Project}}
 	\end{abstract}
 	
 	%%%%%%%%% BODY TEXT
@@ -407,6 +408,18 @@
 	These tests revealed some strong and weak points for these noise estimation methods. For example, the first method can work most of the time but has a dependency on the "static-ness" of the scene. The second method has no dependency on the scene and it can leverage pixel and patch information while first method can not.
 	
 	On the second part of the project, we have filtered hundreds of images. Since second noise estimation method was more likely to fail, we fell back to the first method and this limited us to static scenes with little to no movement.
+	
+	These methods have been tested on AWGN and inherent noise scenarios. While their performance was similar on AWGN scenarios, in some real noise scenarios, second method failed to calculate the noise. Because of this, for some parts of the experiment, results of second method have been omitted.
+
+These tests revealed some strong and weak points for these noise estimation methods. For example, the first method can work most of the time but has a dependency on the "static-ness" of the scene. The second method has no dependency on the scene and it can leverage pixel and patch information while first method can not.
+
+On the second part of the project, we have filtered hundreds of images. Since second noise estimation method was more likely to fail, we fell back to the first method and this limited us to static scenes with little to no movement.
+
+Using at least 10 frames from 3 different scenes(TRI\_A1, TRI\_A2, TRI\_A4), images are filtered with different parameters. Whole process took around 16 hours. 
+
+This process enabled us to select best parameters for each case. This selection revealed that parameter selection mostly depends on input frame rather than guidance frame. Also for frames with low contrast and high frequency structures, it is better to use small \(\lambda\) values instead of bigger ones.
+
+As a final note, we have seen that the filter is capable when correct parameters are fed. But finding those parameters for each case can be a problem for a general use filter.
 	
 
 	{\small
